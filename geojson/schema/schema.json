@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fiboa.example/geojson/schema.json",
+  "title": "fiboa GeoJSON Encoding Schema",
+  "type": "object",
+  "required": [
+    "fiboa_version",
+    "id",
+    "geometry",
+    "bbox",
+    "properties"
+  ],
+  "properties": {
+    "fiboa_version": {
+      "$ref": "https://fiboa.example/metadata/schema.json#/$defs/fiboa_version"
+    },
+    "fiboa_extensions": {
+      "$ref": "https://fiboa.example/metadata/schema.json#/$defs/fiboa_extensions"
+    },
+    "id": {
+      "$ref": "https://fiboa.example/metadata/schema.json#/$defs/id"
+    },
+    "geometry": {
+      "$ref": "https://fiboa.example/metadata/schema.json#/$defs/geometry"
+    },
+    "bbox": {
+      "$ref": "https://fiboa.example/metadata/schema.json#/$defs/bbox"
+    },
+    "links": {
+      "$ref": "https://fiboa.example/metadata/schema.json#/$defs/links"
+    },
+    "properties": {
+      "type": "object",
+      "required": [
+        "license"
+      ],
+      "properties": {
+        "license": {
+          "$ref": "https://fiboa.example/metadata/schema.json#/$defs/license"
+        },
+        "datetime": {
+          "$ref": "https://fiboa.example/metadata/schema.json#/$defs/datetime"
+        },
+        "expires": {
+          "$ref": "https://fiboa.example/metadata/schema.json#/$defs/expires"
+        },
+        "area": {
+          "$ref": "https://fiboa.example/metadata/schema.json#/$defs/area"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "Check that the license link is present if the license is 'other'",
+      "if": {
+        "required": [
+          "license"
+        ],
+        "properties": {
+          "license": {
+            "const": "other"
+          }
+        }
+      },
+      "then": {
+        "type": "object",
+        "required": [
+          "links"
+        ],
+        "properties": {
+          "links": {
+            "type": "array",
+            "contains": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "const": "license"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://geojson.org/schema/Feature.json"
+    }
+  ]
+}
