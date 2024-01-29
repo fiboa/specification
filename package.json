@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "test": "npm run check-docs && npm run check-examples",
-    "check-examples": "ajv --spec=draft2020 -s geojson/schema/schema.json -d \"geojson/examples/*.json\" -r \"metadata/schema/*.json\" -c ajv-formats",
+    "check-examples": "ajv --spec=draft2020 -s geojson/schema/schema.json -d \"geojson/examples/*.json\" -r \"core/schema/*.json\" -c ajv-formats",
     "check-docs": "remark . -f -r .github/.remarkrc"
   },
   "repository": {

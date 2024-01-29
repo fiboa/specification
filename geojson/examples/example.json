@@ -1,6 +1,4 @@
 {
-  "fiboa_version": "0.1.0",
-  "fiboa_extensions": [],
   "type": "Feature",
   "id": "1234",
   "bbox": [
@@ -37,16 +35,7 @@
     ]
   },
   "properties": {
-    "license": "CC-0",
     "datetime": "2020-01-01T00:00:00Z",
     "expires": "2021-01-01T00:00:00Z"
-  },
-  "links": [
-    {
-      "rel": "license",
-      "href": "https://fiboa.example/license",
-      "type": "text/html",
-      "title": "ABC License"
-    }
-  ]
+  }
 }

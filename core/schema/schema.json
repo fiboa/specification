@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fiboa.example/core/schema.json",
+  "title": "fiboa file-format agnostic schema for the properties",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "geometry": {
+      "$comment": "To be defined by the encoding"
+    },
+    "bbox": {
+      "type": "array",
+      "oneOf": [
+        {
+          "minItems": 4,
+          "maxItems": 4
+        },
+        {
+          "minItems": 6,
+          "maxItems": 6
+        }
+      ],
+      "items": {
+        "type": "number"
+      }
+    },
+    "area": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "datetime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "expires": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    }
+  }
+}

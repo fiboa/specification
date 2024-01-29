@@ -8,8 +8,8 @@
 we are developing the specification.
 
 The specification consists of four parts:
-- [Data and Metadata Specification](metadata/README.md)
-  (file format agnostic)
+- [Core Specification](core/README.md)
+  (file format agnostic definition for data and metadata)
 - [GeoJSON Encoding](geojson/README.md)
   with examples and JSON Schema
 - [GeoParquet Encoding](geoparquet/README.md)
