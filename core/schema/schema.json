@@ -8,27 +8,16 @@
       "minLength": 1
     },
     "geometry": {
-      "$comment": "To be defined by the encoding"
+      "format": "geometry"
     },
     "bbox": {
-      "type": "array",
-      "oneOf": [
-        {
-          "minItems": 4,
-          "maxItems": 4
-        },
-        {
-          "minItems": 6,
-          "maxItems": 6
-        }
-      ],
-      "items": {
-        "type": "number"
-      }
+      "format": "bunding-box"
     },
     "area": {
       "type": "number",
-      "exclusiveMinimum": 0
+      "format": "uint32",
+      "exclusiveMinimum": 0,
+      "maximum": 4294967295
     },
     "datetime": {
       "type": "string",

@@ -14,10 +14,28 @@
       "$ref": "https://fiboa.example/core/schema.json#/$defs/id"
     },
     "geometry": {
-      "$ref": "https://fiboa.example/core/schema.json#/$defs/geometry"
+      "not": {
+        "type": "null"
+      },
+      "allOf": [
+        {
+          "$ref": "https://fiboa.example/core/schema.json#/$defs/geometry"
+        }
+      ]
     },
     "bbox": {
-      "$ref": "https://fiboa.example/core/schema.json#/$defs/bbox"
+      "type": "array",
+      "format": "bounding-box",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "number"
+      },
+      "allOf": [
+        {
+          "$ref": "https://fiboa.example/core/schema.json#/$defs/bbox"
+        }
+      ]
     },
     "properties": {
       "type": "object",
