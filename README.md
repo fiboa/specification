@@ -11,9 +11,7 @@ The specification consists of four parts:
 - [Core Specification](core/README.md)
   (file format agnostic definition for data and metadata)
 - [GeoJSON Encoding](geojson/README.md)
-  with examples and JSON Schema
 - [GeoParquet Encoding](geoparquet/README.md)
-  with examples and schema
 
 To completent the specification, there are also best practices and extensions available:
 - [Best Practices](best-practices/README.md)

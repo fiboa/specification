@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fiboa.example/v0.1.0/geojson/datatypes.json",
+  "$defs": {
+    "boolean": {
+      "type": "boolean"
+    },
+    "int8": {
+      "type": "integer",
+      "minimum": -128,
+      "maximum": 127
+    },
+    "uint8": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
+    },
+    "int16": {
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767
+    },
+    "uint16": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "int32": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "uint32": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "int64": {
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807
+    },
+    "uint64": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615
+    },
+    "float": {
+      "type": "number",
+      "minimum": 1.17549435e-38,
+      "maximum": 3.4028235e38
+    },
+    "double": {
+      "type": "number",
+      "minimum": 2.2250738585072014e-308,
+      "maximum": 1.7976931348623157e308
+    },
+    "binary": {
+      "type": "string",
+      "contentEncoding": "binary"
+    },
+    "string": {
+      "type": "string"
+    },
+    "array": {
+      "type": "array"
+    },
+    "object": {
+      "type": "object"
+    },
+    "enum": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "date-time": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "geometry": {
+      "allOf": [
+        {
+          "$ref": "https://geojson.org/schema/Geometry.json"
+        },
+        {
+          "not": {
+            "type": "null"
+          }
+        }
+      ]
+    },
+    "bounding-box": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "number"
+      }
+    }
+  }
+}

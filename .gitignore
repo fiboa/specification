@@ -1,3 +1,5 @@
+geojson/schema/schema.json
+
 # OS files
 .DS_Store
 Thumbs.db

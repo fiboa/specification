@@ -1,7 +1,6 @@
 # GeoJSON Encoding
 
 - [Examples](examples/)
-- [JSON Schema](schema/schema.json)
 
 **NOTE: The GeoJSON encoding is still work in progress.**
 
