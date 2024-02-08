@@ -1,7 +1,6 @@
 # Geoparquet Encoding
 
 - [Examples](examples/)
-- [Schema](schema/schema.json)
 
 **NOTE: The GeoParquet encoding is still work in progress.**
 
