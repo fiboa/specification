@@ -12,3 +12,7 @@ Thumbs.db
 .npm
 /node_modules/
 package-lock.json
+
+# Python
+__pycache__/
+*.egg-info/

@@ -37,9 +37,10 @@ Releases are cut from main, see the [process](process.md) document for more deta
 You'll need to install [nodejs and npm](https://nodejs.org/en/download/) to run the tests.
 Alternatively, you can also use [yarn](https://yarnpkg.com/) instead of npm.
 In this case replace all occurrences of `npm` with `yarn` below.
+Additionally, you need Python >= 3.9 installed.
 
 Afterwards, navigate to the root of the specification repository.
-Now, install the required test software: `npm install`
+Now, install the required test software: `npm install && npm run init`
 
 Finally, you can run all tests or subset of them:
 

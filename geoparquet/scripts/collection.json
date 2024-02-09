@@ -1,0 +1,30 @@
+{
+  "fiboa_version": "0.1.0",
+  "fiboa_extensions": [],
+  "stac_version": "1.0.0",
+  "type": "Collection",
+  "id": "fiboa",
+  "description": "An example fiboa dataset",
+  "license": "CC-0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2019-01-01T00:00:00Z",
+          "2020-01-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "links": []
+}
