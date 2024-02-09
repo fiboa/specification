@@ -1,3 +1,6 @@
+required:
+  - id
+  - geometry
 properties:
   id:
     type: string

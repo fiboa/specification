@@ -2,34 +2,44 @@ const YAML = require('yaml');
 const fs = require('fs');
 
 const propertiesYaml = fs.readFileSync('core/schema/schema.yml', 'utf8');
-const properties = YAML.parse(propertiesYaml).properties;
+const coreSchema = YAML.parse(propertiesYaml);
 const datatypesJson = fs.readFileSync('geojson/schema/datatypes.json', 'utf8');
 const datatypes = JSON.parse(datatypesJson).$defs;
 
-const geojsonCore = ['id', 'geometry', 'bbox', 'properties'];
-const geojsonRootRequired = geojsonCore;
+const geojsonRootProperties = ['id', 'geometry', 'bbox', 'properties'];
 
-let geojsonRoot = {};
-let geojsonProperties = {};
-for (const key in properties) {
-  const propSchema = properties[key];
-  const combinedSchema = convertSchema(propSchema);
-
-  // Assign it to the root or properties object
-  if (geojsonCore.includes(key)) {
-    geojsonRoot[key] = combinedSchema;
-  } else {
-    geojsonProperties[key] = combinedSchema;
+const geojson = {
+  root: {
+    required: [],
+    properties: {}
+  },
+  properties: {
+    required: [],
+    properties: {}
   }
+};
+
+for (const key in coreSchema.properties) {
+  const propSchema = coreSchema.properties[key];
+  const combinedSchema = convertSchema(propSchema);
+  const required = coreSchema.required.includes(key);
+
+  const place = geojsonRootProperties.includes(key) ? 'root' : 'properties';
+  if (required) {
+    geojson[place].required.push(key);
+  }
+  geojson[place].properties[key] = combinedSchema;
 }
 
 const schemaJson = fs.readFileSync('geojson/scripts/template.json', 'utf8');
 const schema = JSON.parse(schemaJson);
-schema.required = geojsonRootRequired;
-schema.properties.id = geojsonRoot.id;
-schema.properties.geometry = geojsonRoot.geometry;
-schema.properties.bbox = geojsonRoot.bbox;
-schema.properties.properties.properties = geojsonProperties;
+
+const merge = (target, source) => {
+  target.required = target.required.concat(source.required);
+  return Object.assign(target.properties, source.properties);
+};
+merge(schema, geojson.root);
+merge(schema.properties.properties, geojson.properties);
 
 fs.writeFileSync('geojson/schema/schema.json', JSON.stringify(schema, null, 2));
 
@@ -55,9 +65,9 @@ function convertSchema(propSchema) {
     } else if (Array.isArray(datatypeSchema.type)) {
       datatypeSchema.type.push("null");
     } else if (Array.isArray(datatypeSchema.oneOf)) {
-      datatypeSchema.oneOf.push({type: "null"});
+      datatypeSchema.oneOf.push({ type: "null" });
     } else if (Array.isArray(datatypeSchema.anyOf)) {
-      datatypeSchema.anyOf.push({type: "null"});
+      datatypeSchema.anyOf.push({ type: "null" });
     } else {
       throw new Error(`Making schema ${JSON.stringify(datatypeSchema)} optional is not supported by this generator`);
     }
@@ -93,7 +103,7 @@ function convertSchema(propSchema) {
       if (!isObject(datatypeSchema.properties)) {
         datatypeSchema.properties = {};
       }
-      for(const propName in value) {
+      for (const propName in value) {
         datatypeSchema.properties[propName] = Object.assign(
           {},
           datatypeSchema.properties[propName],

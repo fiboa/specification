@@ -40,6 +40,9 @@ The following data types occur e.g. in Parquet, but are not currently supported 
 | Struct                                                       | object                                                       | Json?      | -          | -         |
 | JSON                                                         | any                                                          | Json       | -          | -         |
 
+Additionally, Shapefile has the big drawback that the field name limit is 10 characters.
+As such it doesn't work well with fiboa and its extension mechanism.
+
 ## Potential issues in conversion
 
 - NaN and +/-Infinity can't be encoded in JSON
