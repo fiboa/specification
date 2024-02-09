@@ -6,17 +6,17 @@ We must define our own validation vocabulary, based on the [fiboa data types](da
 The following keywords are supported:
 
 - `type`: The [fiboa data types](datatypes.md) as a string, **required**.
-- `enum`: An array of allowed strings or integers.
 - `optional`: Defines whether having a value is optional,
   which usually means null or a similar value is allowed to be set
 
-The following validation vocabulary is defined by JSON Schema:
+Additionally, the following validation vocabulary is defined by JSON Schema:
 
 For strings:
 
 - `pattern`
 - `minLength`
 - `maxLength`
+- `enum`: An array of allowed strings
 
 For numerical data types:
 
@@ -24,6 +24,7 @@ For numerical data types:
 - `maximum`
 - `exclusiveMinimum`
 - `exclusiveMaximum`
+- `enum`: An array of allowed **integers**.
 
 For arrays:
 
