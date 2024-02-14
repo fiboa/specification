@@ -40,7 +40,7 @@ In this case replace all occurrences of `npm` with `yarn` below.
 Additionally, you need Python >= 3.9 installed.
 
 Afterwards, navigate to the root of the specification repository.
-Now, install the required test software: `npm install && npm run init`
+Now, install the required test software: `npm install` and `npm run init`
 
 Finally, you can run all tests or subset of them:
 
