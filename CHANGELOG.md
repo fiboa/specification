@@ -27,9 +27,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - ...
 
-## [v0.0.1] - 2024-02-15
+## [v0.0.2] - 2024-02-14
+
+- Use .yaml instead of .yml
+
+## [v0.0.1] - 2024-02-14
 
 - First release
 
-[Unreleased]: <https://github.com/radiantearth/stac-spec/compare/v0.0.1...main>
+[Unreleased]: <https://github.com/radiantearth/stac-spec/compare/v0.0.2...main>
+[v0.0.2]: <https://github.com/radiantearth/stac-spec/compare/v0.0.1...v0.0.2>
 [v0.0.1]: <https://github.com/radiantearth/stac-spec/tree/v0.0.1>

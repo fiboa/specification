@@ -2,7 +2,7 @@
 
 > Making field boundaries openly available in a unified way.
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
 **NOTE:** Most of the content in this repository is still placeholder while 
 we are developing the specification.

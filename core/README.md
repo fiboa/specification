@@ -1,6 +1,6 @@
 # Core Specification
 
-- **Schema:** <https://fiboa.github.io/specification/v0.0.1/schema.yml>
+- **Schema:** <https://fiboa.github.io/specification/v0.0.2/schema.yaml>
 
 **NOTE: The Core Specification is still work in progress.**
 

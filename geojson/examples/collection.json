@@ -1,8 +1,6 @@
 {
-  "fiboa_version": "0.0.1",
-  "fiboa_extensions": [
-    "https://example.com/fiboa/0.0.1/schema.yml"
-  ],
+  "fiboa_version": "0.0.2",
+  "fiboa_extensions": [],
   "stac_version": "1.0.0",
   "type": "Collection",
   "id": "fiboa",

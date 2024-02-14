@@ -1,6 +1,6 @@
 {
   "name": "fiboa-specification",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "test": "npm run check-docs && npm run check-geojson-examples && npm run check-geoparquet-examples",
     "check-geojson-examples": "fiboa-geojson-validator validate geojson/examples -c geojson/examples/collection.json",
@@ -8,7 +8,7 @@
     "check-geoparquet-examples": "fiboa_parquet validate geoparquet/examples/example.parquet",
     "generate-geoparquet-examples": "fiboa_parquet create geojson/examples -o geoparquet/examples/example.parquet",
     "check-docs": "remark . -f -r .github/.remarkrc",
-    "create-json-schema": "fiboa-geojson-validator create-schema core/schema/schema.yml -o geojson/schema/schema.json"
+    "create-json-schema": "fiboa-geojson-validator create-schema core/schema/schema.yaml -o geojson/schema/schema.json"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/fiboa/specification",
   "devDependencies": {
-    "@fiboa/geojson-validator": "^0.1.0",
+    "@fiboa/geojson-validator": "^0.1.2",
     "remark-cli": "^12.0.0",
     "remark-gfm": "^4.0.0",
     "remark-lint": "^9.1.2",
