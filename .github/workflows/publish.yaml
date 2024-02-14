@@ -11,11 +11,11 @@ jobs:
         uses: rlespinasse/github-slug-action@v4
       - uses: actions/checkout@v4
       - name: copy content for publication
-        run:
+        run: |
           mkdir tmp
-          cp -r core/schema/ tmp/
+          cp -r core/schema/* tmp/
           mkdir tmp/geojson
-          cp -r geojson/schema/ tmp/geojson/
+          cp -r geojson/schema/datatypes.json tmp/geojson/datatypes.json
       - name: deploy schemas for version ${{ env.GITHUB_REF_SLUG }}
         uses: peaceiris/actions-gh-pages@v3
         with:
