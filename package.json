@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "scripts": {
     "test": "npm run check-docs && npm run check-examples",
-    "check-examples": "node geojson/scripts/validate.js geojson/examples -c geojson/examples/collection.json",
+    "check-examples": "fiboa-geojson-validator validate geojson/examples -c geojson/examples/collection.json",
     "check-docs": "remark . -f -r .github/.remarkrc",
-    "create-json-schema": "node ./geojson/scripts/create_schema.js"
+    "create-json-schema": "fiboa-geojson-validator create-schema core/schema/schema.yml -o geojson/schema/schema.json"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,8 @@
     "url": "https://github.com/fiboa/specification/issues"
   },
   "homepage": "https://github.com/fiboa/specification",
-  "dependencies": {
-    "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
-    "axios": "^1.6.7",
-    "yaml": "^2.3.4",
-    "yargs": "^17.7.2"
-  },
   "devDependencies": {
+    "fiboa-geojson-validator": "^0.1.0",
     "remark-cli": "^12.0.0",
     "remark-gfm": "^4.0.0",
     "remark-lint": "^9.1.2",

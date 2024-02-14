@@ -10,9 +10,15 @@ jobs:
       - name: inject env variables
         uses: rlespinasse/github-slug-action@v4
       - uses: actions/checkout@v4
+      - name: copy content for publication
+        run:
+          mkdir tmp
+          cp -r core/schema/ tmp/
+          mkdir tmp/geojson
+          cp -r geojson/schema/ tmp/geojson/
       - name: deploy schemas for version ${{ env.GITHUB_REF_SLUG }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: core/schema
+          publish_dir: tmp
           destination_dir: ${{ env.GITHUB_REF_SLUG }}
