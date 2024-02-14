@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/fiboa/specification",
   "devDependencies": {
-    "fiboa-geojson-validator": "^0.1.0",
+    "@fiboa/geojson-validator": "^0.1.0",
     "remark-cli": "^12.0.0",
     "remark-gfm": "^4.0.0",
     "remark-lint": "^9.1.2",
