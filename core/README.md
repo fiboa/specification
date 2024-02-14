@@ -1,5 +1,7 @@
 # Core Specification
 
+- **Schema:** <https://fiboa.github.io/specification/v0.0.1/core/schema.yml>
+
 **NOTE: The Core Specification is still work in progress.**
 
 This specification describes the core data and metadata properties for both at the

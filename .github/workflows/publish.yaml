@@ -1,0 +1,25 @@
+name: Publish Schemas
+on:
+  release:
+    types:
+      - published
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: inject env variables
+        uses: rlespinasse/github-slug-action@v4
+      - uses: actions/checkout@v4
+      - name: create schemas
+        run: npm run create-json-schema
+      - name: copy folders
+        run: |
+          mkdir tmp
+          cp -r core/schema tmp/core
+          cp -r geojson/schema tmp/geojson
+      - name: deploy schemas for version ${{ env.GITHUB_REF_SLUG }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: tmp
+          destination_dir: ${{ env.GITHUB_REF_SLUG }}

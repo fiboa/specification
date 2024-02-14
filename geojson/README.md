@@ -1,6 +1,7 @@
 # GeoJSON Encoding
 
-- [Examples](examples/)
+- **[Examples](examples/)**
+- **Schema:** <https://fiboa.github.io/specification/v0.0.1/geojson/schema.json>
 
 **NOTE: The GeoJSON encoding is still work in progress.**
 

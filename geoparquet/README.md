@@ -1,6 +1,6 @@
 # Geoparquet Encoding
 
-- [Examples](examples/)
+- **[Examples](examples/)**
 
 **NOTE: The GeoParquet encoding is still work in progress.**
 

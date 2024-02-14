@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fiboa.example/v0.1.0/geojson/schema.json",
+  "$id": "https://fiboa.example/v0.0.1/geojson/schema.json",
   "title": "fiboa GeoJSON Encoding Schema",
   "type": "object",
   "required": [
