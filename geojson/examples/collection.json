@@ -1,0 +1,38 @@
+{
+  "fiboa_version": "0.0.1",
+  "fiboa_extensions": [
+    "https://example.com/fiboa/0.0.1/schema.yml"
+  ],
+  "stac_version": "1.0.0",
+  "type": "Collection",
+  "id": "fiboa",
+  "description": "An example fiboa dataset",
+  "license": "CC-0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2019-01-01T00:00:00Z",
+          "2020-01-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "item",
+      "href": "example.json",
+      "type": "application/geo+json"
+    }
+  ]
+}

@@ -25,7 +25,7 @@ It also shows the mapping to the corresponding data types in other popular file 
 | date-time<br />with milliseconds<br />timezone: UTC timezone | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) | string<br />format: date-time<br />pattern: Z$               | DateTime                           | DATETIME (TEXT) | Text?              |
 | geometry                                                     | BYTE_ARRAY<br />encoded as WKB                               | [object with schema](https://geojson.org/schema/Geometry.json) | Binary<br />encoded as FlatBuffers | GEOMETRY (BLOB) | Geometry           |
 | bounding-box<br />x and y only, no z                         | [tbd](https://github.com/opengeospatial/geoparquet/pull/191) | array<br />minItems: 4<br />maxItems: 4<br />items: number   | Json?                              | ?               | ?                  |
-| *optional* (not a datatype)                                  | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) | null                                                         | ?                                  | NULL            | -                  |
+| *required* (not a datatype)                                  | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) | null                                                         | ?                                  | NULL            | -                  |
 
 ## Unsupported Data Types
 

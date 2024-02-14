@@ -6,8 +6,9 @@ We must define our own validation vocabulary, based on the [fiboa data types](da
 The following keywords are supported:
 
 - `type`: The [fiboa data types](datatypes.md) as a string, **required**.
-- `optional`: Defines whether having a value is optional,
-  which usually means null or a similar value is allowed to be set
+- `required`: Whether a field is required or not.
+  If not required, fields allow a special value such as `null`.
+  Defaults to `false`.
 
 Additionally, the following validation vocabulary is defined by JSON Schema:
 
@@ -35,7 +36,6 @@ For arrays:
 
 For objects:
 
-- `required`
 - `properties` (sub-schemas must be compliant to fiboa Schema)
 
 Note: In fiboa additional properties are disallowed (JSON Schema: `additionalProperties: false`).

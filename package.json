@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "test": "npm run check-docs && npm run check-examples",
-    "check-examples": "npm run create-json-schema && ajv --spec=draft2020 -s geojson/schema/schema.json -d \"geojson/examples/*.json\" -r \"geojson/schema/!(schema).json\" -c ajv-formats",
+    "check-examples": "node geojson/scripts/validate.js geojson/examples -c geojson/examples/collection.json",
     "check-docs": "remark . -f -r .github/.remarkrc",
     "create-json-schema": "node ./geojson/scripts/create_schema.js"
   },
@@ -17,9 +17,14 @@
     "url": "https://github.com/fiboa/specification/issues"
   },
   "homepage": "https://github.com/fiboa/specification",
-  "devDependencies": {
-    "ajv-cli": "^5.0.0",
+  "dependencies": {
+    "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
+    "axios": "^1.6.7",
+    "yaml": "^2.3.4",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
     "remark-cli": "^12.0.0",
     "remark-gfm": "^4.0.0",
     "remark-lint": "^9.1.2",
@@ -27,7 +32,6 @@
     "remark-preset-lint-consistent": "^5.1.2",
     "remark-preset-lint-markdown-style-guide": "^5.1.3",
     "remark-preset-lint-recommended": "^6.1.3",
-    "remark-validate-links": "^13.0.0",
-    "yaml": "^2.3.4"
+    "remark-validate-links": "^13.0.0"
   }
 }

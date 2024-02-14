@@ -1,47 +1,56 @@
 const YAML = require('yaml');
 const fs = require('fs');
 
-const propertiesYaml = fs.readFileSync('core/schema/schema.yml', 'utf8');
-const coreSchema = YAML.parse(propertiesYaml);
-const datatypesJson = fs.readFileSync('geojson/schema/datatypes.json', 'utf8');
-const datatypes = JSON.parse(datatypesJson).$defs;
+const datatypes = require('../schema/datatypes.json').$defs;
+const template = require('../scripts/template.json');
 
-const geojsonRootProperties = ['id', 'geometry', 'bbox', 'properties'];
-
-const geojson = {
-  root: {
-    required: [],
-    properties: {}
-  },
-  properties: {
-    required: [],
-    properties: {}
-  }
-};
-
-for (const key in coreSchema.properties) {
-  const propSchema = coreSchema.properties[key];
-  const combinedSchema = convertSchema(propSchema);
-  const required = coreSchema.required.includes(key);
-
-  const place = geojsonRootProperties.includes(key) ? 'root' : 'properties';
-  if (required) {
-    geojson[place].required.push(key);
-  }
-  geojson[place].properties[key] = combinedSchema;
+if (require.main === module) {
+  runCLI();
 }
 
-const schemaJson = fs.readFileSync('geojson/scripts/template.json', 'utf8');
-const schema = JSON.parse(schemaJson);
+function runCLI() {
+  const propertiesYaml = fs.readFileSync('core/schema/schema.yml', 'utf8');
+  const coreSchema = YAML.parse(propertiesYaml);
+  const schema = createSchema(coreSchema);
+  fs.writeFileSync('geojson/schema/schema.json', JSON.stringify(schema, null, 2));
+}
 
-const merge = (target, source) => {
-  target.required = target.required.concat(source.required);
-  return Object.assign(target.properties, source.properties);
-};
-merge(schema, geojson.root);
-merge(schema.properties.properties, geojson.properties);
+function createSchema(coreSchema) {
+  const geojsonRootProperties = ['id', 'geometry', 'bbox', 'properties'];
 
-fs.writeFileSync('geojson/schema/schema.json', JSON.stringify(schema, null, 2));
+  const geojson = {
+    root: {
+      required: [],
+      properties: {}
+    },
+    properties: {
+      required: [],
+      properties: {}
+    }
+  };
+
+  for (const key in coreSchema.properties) {
+    const propSchema = coreSchema.properties[key];
+    const result = convertSchema(propSchema);
+
+    const place = geojsonRootProperties.includes(key) ? 'root' : 'properties';
+    if (result.required) {
+      geojson[place].required.push(key);
+    }
+    geojson[place].properties[key] = result.schema;
+  }
+
+  const schema = JSON.parse(JSON.stringify(template));
+
+  const merge = (target, source) => {
+    target.required = target.required.concat(source.required);
+    return Object.assign(target.properties, source.properties);
+  };
+  merge(schema, geojson.root);
+  merge(schema.properties.properties, geojson.properties);
+
+  return schema;
+}
 
 function isObject(item) {
   return (item && typeof item === 'object' && !Array.isArray(item));
@@ -56,12 +65,38 @@ function convertSchema(propSchema) {
     throw new Error(`Unknown datatype ${propSchema.type}`);
   }
 
-  const datatypeSchema = Object.assign({}, datatypes[propSchema.type]);
+  let datatypeSchema = Object.assign({}, datatypes[propSchema.type]);
 
-  // Allow null if the property is optional
-  if (propSchema.optional === true) {
+  // Allow null if the property is not required
+  const required = propSchema.required;
+  if (required) {
+    // If required, make sure that for external schemas null is not allowed
+    if (datatypeSchema.$ref) {
+      datatypeSchema = {
+        "allOf": [
+          datatypeSchema,
+          {
+            "not": {
+              "type": "null"
+            }
+          }
+        ]
+      };
+    }
+  }
+  else {
+    // If optional, add null data type to schema
     if (typeof datatypeSchema.type === "string") {
       datatypeSchema.type = [datatypeSchema.type, "null"];
+    } else if (datatypeSchema.$ref) {
+      datatypeSchema = {
+        "allOf": [
+          datatypeSchema,
+          {
+            "type": "null"
+          }
+        ]
+      };
     } else if (Array.isArray(datatypeSchema.type)) {
       datatypeSchema.type.push("null");
     } else if (Array.isArray(datatypeSchema.oneOf)) {
@@ -69,7 +104,7 @@ function convertSchema(propSchema) {
     } else if (Array.isArray(datatypeSchema.anyOf)) {
       datatypeSchema.anyOf.push({ type: "null" });
     } else {
-      throw new Error(`Making schema ${JSON.stringify(datatypeSchema)} optional is not supported by this generator`);
+      console.warn(`Making schema ${JSON.stringify(datatypeSchema)} optional is not supported by this generator`);
     }
   }
 
@@ -92,10 +127,11 @@ function convertSchema(propSchema) {
     const value = propSchema[key];
     if (key === 'items' && isObject(value)) {
       // Merge item schemas
+      const result = convertSchema(value);
       datatypeSchema.items = Object.assign(
         {},
         datatypeSchema.items,
-        convertSchema(value)
+        result.schema
       );
     }
     else if (key === 'properties' && isObject(value.properties)) {
@@ -103,19 +139,31 @@ function convertSchema(propSchema) {
       if (!isObject(datatypeSchema.properties)) {
         datatypeSchema.properties = {};
       }
+      if (!Array.isArray(datatypeSchema.required)) {
+        datatypeSchema.required = [];
+      }
       for (const propName in value) {
+        const result = convertSchema(value[propName]);
         datatypeSchema.properties[propName] = Object.assign(
           {},
           datatypeSchema.properties[propName],
-          convertSchema(value[propName])
+          result.schema
         );
+        if (result.required) {
+          datatypeSchema.required.push(propName);
+        }
       }
     }
-    else if (!['type', 'optional'].includes(key)) {
+    else if (!['type', 'required'].includes(key)) {
       datatypeSchema[key] = value;
     }
     // else: ignore
   }
 
-  return datatypeSchema;
+  return {
+    required,
+    schema: datatypeSchema
+  };
 }
+
+module.exports = createSchema;

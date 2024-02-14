@@ -89,16 +89,7 @@
       "pattern": "Z$"
     },
     "geometry": {
-      "allOf": [
-        {
-          "$ref": "https://geojson.org/schema/Geometry.json"
-        },
-        {
-          "not": {
-            "type": "null"
-          }
-        }
-      ]
+      "$ref": "https://geojson.org/schema/Geometry.json"
     },
     "bounding-box": {
       "type": "array",
