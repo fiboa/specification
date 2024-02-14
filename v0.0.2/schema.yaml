@@ -1,0 +1,17 @@
+properties:
+  id:
+    type: string
+    minLength: 1
+    required: true
+  geometry:
+    type: geometry
+    required: true
+  bbox:
+    type: bounding-box
+  area:
+    type: uint32
+    exclusiveMinimum: 0
+  datetime:
+    type: date-time
+  expires:
+    type: date-time
