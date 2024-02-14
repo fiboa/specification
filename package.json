@@ -4,9 +4,9 @@
   "scripts": {
     "test": "npm run check-docs && npm run check-geojson-examples && npm run check-geoparquet-examples",
     "check-geojson-examples": "fiboa-geojson-validator validate geojson/examples -c geojson/examples/collection.json",
-    "init": "pip install -e geoparquet/scripts",
+    "init": "pip install fiboa_parquet",
     "check-geoparquet-examples": "fiboa_parquet validate geoparquet/examples/example.parquet",
-    "generate-geoparquet-examples": "fiboa_parquet create geoparquet/examples/example.parquet",
+    "generate-geoparquet-examples": "fiboa_parquet create geojson/examples -o geoparquet/examples/example.parquet",
     "check-docs": "remark . -f -r .github/.remarkrc",
     "create-json-schema": "fiboa-geojson-validator create-schema core/schema/schema.yml -o geojson/schema/schema.json"
   },
