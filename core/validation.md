@@ -14,6 +14,7 @@ Additionally, the following validation vocabulary is defined by JSON Schema:
 
 For strings:
 
+- `format` (values: `email`, `idn-email`, `iri`, `uri`, `uuid`)
 - `pattern`
 - `minLength`
 - `maxLength`
