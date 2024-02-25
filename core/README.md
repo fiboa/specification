@@ -43,7 +43,7 @@ Generally, the version and the extensions must be uniform per Collection.
 | ------------- | ------------ | ----------- |
 | geometry      | geometry     | **REQUIRED.** A geometry that reflects the footprint of the field, usually a Polygon. Default CRS is WGS84. |
 | bbox          | bounding-box | The bounding box of the field. |
-| area          | uint32       | Area of the field, in ha and > 0. |
+| area          | uint32       | Area of the field, in ha. Must be > 0 and <= 1.000.000.000. |
 
 ### Temporal Properties
 

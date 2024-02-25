@@ -11,6 +11,7 @@ properties:
   area:
     type: uint32
     exclusiveMinimum: 0
+    maximum: 1000000000
   datetime:
     type: date-time
   expires:

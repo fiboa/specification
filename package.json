@@ -6,7 +6,7 @@
     "check-geojson-examples": "fiboa-geojson-validator validate geojson/examples -c geojson/examples/collection.json",
     "init": "pip install fiboa-cli",
     "check-geoparquet-examples": "fiboa validate geoparquet/examples -s core/schema/schema.yaml",
-    "create-geoparquet-example": "fiboa create geojson/examples -o geoparquet/examples/example.parquet -c geojson/examples/collection.json -s core/schema/schema.yaml",
+    "create-geoparquet-example": "npm run check-geojson-examples && fiboa create geojson/examples -o geoparquet/examples/example.parquet -c geojson/examples/collection.json -s core/schema/schema.yaml",
     "check-docs": "remark . -f -r .github/.remarkrc"
   },
   "repository": {
