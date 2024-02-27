@@ -35,7 +35,10 @@ Generally, the version and the extensions must be uniform per Collection.
 
 | Property Name | Data Type | Description |
 | ------------- | --------- | ----------- |
-| id            | string    | **REQUIRED.** A unique identifier for the field. |
+| id            | string    | **REQUIRED.** A unique identifier for the field. It must be unique within the Collection (see above). |
+| collection    | string    | The identifier of the parent collection. |
+
+The collection identifier is usually only needed for merged datasets.
 
 ### Spatial Properties
 
