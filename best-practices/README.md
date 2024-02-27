@@ -4,5 +4,5 @@
 
 ## Casing
 
-All properties should be using camelCase.
-For example a field for a land-use class should be named `landuseClass` instead of `landuse_class`.
+All properties should be using snake case.
+For example a field for a land-use class should be named `landuse_class` instead of `landuseClass`.
