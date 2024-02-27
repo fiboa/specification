@@ -27,6 +27,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - ...
 
+## [v0.0.3] - 2024-02-28
+
+### Added
+
+- `collection` property
+- `determination_method` property
+- `determination_datetime` property
+
+### Changed
+
+- Recommend snake_case instead of camcelCase
+
+### Removed
+
+- Removed `expires` and `datetime`
+
+### Fixed
+
+- Clarified that the id must be unique within the collection
+- Clarified `area` and restricted value range
+- Clarified the allowed schema formats
+
 ## [v0.0.2] - 2024-02-14
 
 - Use .yaml instead of .yml
