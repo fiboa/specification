@@ -47,8 +47,8 @@ Generally, the version and the extensions must be uniform per Collection.
 
 ### Temporal Properties
 
-| Property Name | Data Type | Description |
-| ------------- | --------- | ----------- |
-| datetime      | datetime  | The data is valid since the given date and time (inclusive), in UTC and formatted according to RFC 3339, section 5.6. |
-| expires       | datetime  | The data is valid until the given date and time (exclusive), in UTC and formatted according to RFC 3339, section 5.6. |
+| Property Name        | Data Type | Description |
+| -------------------- | --------- | ----------- |
+| observation_datetime | datetime  | The last timestamp at which field did exist and was observed, in UTC and formatted according to RFC 3339, section 5.6. |
 
+More temporal properties will be defined in a [timestamps extension](https://github.com/fiboa/extensions/issues/1).

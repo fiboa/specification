@@ -35,7 +35,6 @@
     ]
   },
   "properties": {
-    "datetime": "2020-01-01T00:00:00Z",
-    "expires": "2021-01-01T00:00:00Z"
+    "observation_datetime": "2020-01-01T00:00:00Z"
   }
 }
