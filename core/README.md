@@ -46,7 +46,12 @@ The collection identifier is usually only needed for merged datasets.
 | ------------- | ------------ | ----------- |
 | geometry      | geometry     | **REQUIRED.** A geometry that reflects the footprint of the field, usually a Polygon. Default CRS is WGS84. |
 | bbox          | bounding-box | The bounding box of the field. |
-| area          | float        | Area of the field, in ha. Must be > 0 and <= 1.000.000.000. |
+| area          | float        | Area of the field, in ha. Must be > 0 and <= 100.000. |
+
+**area:** This is simply a derived attribute from the geometry itself,
+and should match the geometry's area. If they do not match then the
+geometry should be considered canonical.
+Validators may flag the value as invalid if it exceeds a certain threshold.
 
 ### Determination Properties
 

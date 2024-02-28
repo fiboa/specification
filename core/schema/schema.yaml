@@ -14,7 +14,7 @@ properties:
   area:
     type: float
     exclusiveMinimum: 0
-    maximum: 1000000000
+    maximum: 100000
   determination_datetime:
     type: date-time
   determination_method:
