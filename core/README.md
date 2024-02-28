@@ -49,7 +49,7 @@ The collection identifier is usually only needed for merged datasets.
 | area          | float        | Area of the field, in ha. Must be > 0 and <= 100.000. |
 
 **area:** This is simply a derived attribute from the geometry itself,
-and should match the geometry's area. If they do not match then the
+and must match the geometry's area. If they do not match then the
 geometry should be considered canonical.
 Validators may flag the value as invalid if it exceeds a certain threshold.
 
