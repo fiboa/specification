@@ -12,8 +12,18 @@ properties:
   bbox:
     type: bounding-box
   area:
-    type: uint32
+    type: float
     exclusiveMinimum: 0
     maximum: 1000000000
-  observation_datetime:
+  determination_datetime:
     type: date-time
+  determination_method:
+    type: enum
+    enum:
+     - manual
+     - driven
+     - surveyed
+     - administrative
+     - auto-operation
+     - auto-imagery
+     - unknown

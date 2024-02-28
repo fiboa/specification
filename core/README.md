@@ -46,12 +46,27 @@ The collection identifier is usually only needed for merged datasets.
 | ------------- | ------------ | ----------- |
 | geometry      | geometry     | **REQUIRED.** A geometry that reflects the footprint of the field, usually a Polygon. Default CRS is WGS84. |
 | bbox          | bounding-box | The bounding box of the field. |
-| area          | uint32       | Area of the field, in ha. Must be > 0 and <= 1.000.000.000. This is simply a derived attribute from the geometry itself, and should match the geometry's area. If they do not match then the geometry should be considered canonical (and validators should flag when they don't match). |
+| area          | float        | Area of the field, in ha. Must be > 0 and <= 1.000.000.000. This is simply a derived attribute from the geometry itself, and should match the geometry's area. If they do not match then the geometry should be considered canonical (and validators should flag when they don't match). |
 
-### Temporal Properties
+### Determination Properties
 
-| Property Name        | Data Type | Description |
-| -------------------- | --------- | ----------- |
-| observation_datetime | datetime  | The last timestamp at which field did exist and was observed, in UTC and formatted according to RFC 3339, section 5.6. |
+| Property Name          | Data Type | Description |
+| ---------------------- | --------- | ----------- |
+| determination_method   | enum      | The boundary creation method, one of the values below. |
+| determination_datetime | datetime  | The last timestamp at which the field did exist and was observed, in UTC. |
+
+**determination_datetime**: In case the source of the information is an
+interval or a set of timestamps, use the end.
+For example, for ML you'd use the timestamp of the last image and not the
+timestamp of the actual execution.
 
 More temporal properties will be defined in a [timestamps extension](https://github.com/fiboa/extensions/issues/1).
+
+**determination_method**: Allowed values:
+- `manual` (hand drawn from imagery)
+- `driven`
+- `surveyed`
+- `administrative`
+- `auto-operation` (auto-created from operation)
+- `auto-imagery` (auto-created from imagery)
+- `unknown`

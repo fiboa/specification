@@ -35,6 +35,6 @@
     ]
   },
   "properties": {
-    "observation_datetime": "2020-01-01T00:00:00Z"
+    "determination_datetime": "2020-01-01T00:00:00Z"
   }
 }
