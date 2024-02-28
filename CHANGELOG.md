@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - ...
 
-## [v0.0.3] - 2024-02-28
+## [v0.1.0] - 2024-02-28
 
 ### Added
 
@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - First release
 
-[Unreleased]: <https://github.com/radiantearth/stac-spec/compare/v0.0.3...main>
-[v0.0.3]: <https://github.com/radiantearth/stac-spec/compare/v0.0.2...v0.0.3>
+[Unreleased]: <https://github.com/radiantearth/stac-spec/compare/v0.1.0...main>
+[v0.1.0]: <https://github.com/radiantearth/stac-spec/compare/v0.0.2...v0.1.0>
 [v0.0.2]: <https://github.com/radiantearth/stac-spec/compare/v0.0.1...v0.0.2>
 [v0.0.1]: <https://github.com/radiantearth/stac-spec/tree/v0.0.1>
