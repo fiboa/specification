@@ -55,8 +55,10 @@ The collection identifier is usually only needed for merged datasets.
 | determination_method   | enum      | The boundary creation method, one of the values below. |
 | determination_datetime | datetime  | The last timestamp at which the field did exist and was observed, in UTC. |
 
-**determination_datetime**: In case the source of the information is an interval or a set of timestamps, use the end.
-For example, for ML you'd use the timestamp of the last image and not the timestamp of the actual execution.
+**determination_datetime**: In case the source of the information is an
+interval or a set of timestamps, use the end.
+For example, for ML you'd use the timestamp of the last image and not the
+timestamp of the actual execution.
 
 More temporal properties will be defined in a [timestamps extension](https://github.com/fiboa/extensions/issues/1).
 
