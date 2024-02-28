@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Recommend snake_case instead of camcelCase
+- `area`: Changed datatype from uint8 to float
 
 ### Removed
 
