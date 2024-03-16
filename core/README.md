@@ -49,8 +49,8 @@ The collection identifier is usually only needed for merged datasets.
 | area          | float        | Area of the field, in hectares. Must be > 0 and <= 100,000. |
 | perimeter     | float        | Perimeter of the field, in meters. Must be > 0 and <= 125,000. |
 
-**area/perimeter:** These are derived attributes from the geometry itself,
-and must match the geometry's area/perimeter. If they do not match then the
+**area:** This is simply a derived attribute from the geometry itself,
+and must match the geometry's area. If they do not match then the
 geometry should be considered canonical.
 Validators may flag the value as invalid if it exceeds a certain threshold.
 

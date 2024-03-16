@@ -1,6 +1,6 @@
 {
   "name": "fiboa-specification",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "scripts": {
     "test": "npm run check-docs && npm run check-geojson-examples && npm run check-geoparquet-examples",
     "check-geojson-examples": "fiboa-geojson-validator validate geojson/examples -c geojson/examples/collection.json",
