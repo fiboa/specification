@@ -15,6 +15,10 @@ properties:
     type: float
     exclusiveMinimum: 0
     maximum: 100000
+  perimeter:
+    type: float
+    exclusiveMinimum: 0
+    maximum: 125000
   determination_datetime:
     type: date-time
   determination_method:
