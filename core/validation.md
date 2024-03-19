@@ -2,6 +2,7 @@
 
 As fiboa is targeting multiple encodings, there's no single solution for validation.
 We must define our own validation vocabulary, based on the [fiboa data types](datatypes.md).
+Nevertheless, fiboa Schema can be translated into JSON Schema.
 
 The following keywords are supported:
 
@@ -38,6 +39,6 @@ For arrays:
 For objects:
 
 - `properties` (sub-schemas must be compliant to fiboa Schema)
-  Note: In objects additional properties are disallowed by default (JSON Schema: `additionalProperties: false`).
-
-fiboa Schema can be translated into JSON Schema.
+- `additionalProperties`
+  (Note: In objects additional properties are disallowed by default, i.e. the default value is `false`.
+  In JSON Schema the default value is `true`.)
