@@ -38,7 +38,6 @@ For arrays:
 For objects:
 
 - `properties` (sub-schemas must be compliant to fiboa Schema)
-
-Note: In fiboa additional properties are disallowed (JSON Schema: `additionalProperties: false`).
+  Note: In objects additional properties are disallowed by default (JSON Schema: `additionalProperties: false`).
 
 fiboa Schema can be translated into JSON Schema.
