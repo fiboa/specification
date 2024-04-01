@@ -3,47 +3,30 @@
 The following table shows the data types that are used by fiboa in the Property definitions.
 It also shows the mapping to the corresponding data types in other popular file formats.
 
-| fiboa data type                                              | (Geo)Parquet                                                 | (Geo)JSON                                                    | FlatGeoBuf                         | Geopackage      | Shapefile          |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------------- | --------------- | ------------------ |
-| boolean                                                      | BOOLEAN                                                      | boolean                                                      | Bool                               | BOOLEAN         | -                  |
-| int8                                                         | IntType<br />bitWidth: 8<br />isSigned: true<br />(deprecated: INT_8) | integer<br />minimum: -128<br />maximum: 127                 | Byte                               | TINYINT         | Short Integer?     |
-| uint8                                                        | IntType<br />bitWidth: 8<br />isSigned: false<br />(deprecated: UINT_8) | integer<br />minimum: 0<br />maximum: 255                    | UByte                              | SMALLINT?       | Short Integer?     |
-| int16                                                        | IntType<br />bitWidth: 16<br />isSigned: true<br />(deprecated: INT_16) | integer<br />minimum: -32768<br />maximum: 32767             | Short                              | SMALLINT        | Short Integer      |
-| uint16                                                       | IntType<br />bitWidth: 16<br />isSigned: false<br />(deprecated: UINT_16) | integer<br />minimum: 0<br />maximum: 65535                  | UShort                             | MEDIUMINT?      | Long Integer?      |
-| int32                                                        | IntType<br />bitWidth: 32<br />isSigned: true<br />(deprecated: INT_32) | integer<br />minimum: -2147483648<br />maximum: 2147483647   | Int                                | MEDIUMINT       | Long Integer       |
-| uint32                                                       | IntType<br />bitWidth: 64<br />isSigned: false<br />(deprecated: UINT_32) | integer<br />minimum: 0<br />maximum: 4294967295             | UInt                               | INT?            | -                  |
-| int64                                                        | IntType<br />bitWidth: 64<br />isSigned: true<br />(deprecated: INT_64) | integer<br />minimum: -9223372036854775808<br />maximum: 9223372036854775807 | Long                               | INT             | -                  |
-| uint64                                                       | IntType<br />bitWidth: 64<br />isSigned: false<br />(deprecated: UINT_64) | integer<br />minimum: 0<br />maximum: 18446744073709551615   | ULong                              | -               | -                  |
-| float<br />IEEE 32-bit                                       | FLOAT                                                        | number<br />minimum: ?<br />maximum: ?                       | Float                              | FLOAT (REAL)    | Float              |
-| double<br />IEEE 64-bit                                      | DOUBLE                                                       | number<br />minimum: ?<br />maximum: ?                       | Double                             | DOUBLE (REAL)   | Double             |
-| binary                                                       | BYTE_ARRAY                                                   | string<br />contentEncoding: binary                          | Binary                             | BLOB            | BLOB               |
-| string<br />charset: UTF-8                                   | STRING (BYTE_ARRAY)                                          | string                                                       | String                             | TEXT            | Text               |
-| array                                                        | LIST                                                         | array                                                        | Json?                              | -               | -                  |
-| object<br />keys: string<br />values: any                    | MAP                                                          | object<br />additionalProperties: false                      | Json?                              | -               | -                  |
-| enum<br />string/integer                                     | ENUM (BYTE_ARRAY)                                            | string/integer<br />enum                                     | string/integer?                    | TEXT/INT?       | Text/Long Integer? |
-| date                                                         | DATE (INT32)                                                 | string<br />format: date                                     | string?                            | DATE (TEXT)     | Date               |
-| date-time<br />with milliseconds<br />timezone: UTC timezone | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) | string<br />format: date-time<br />pattern: Z$               | DateTime                           | DATETIME (TEXT) | Text?              |
-| geometry                                                     | BYTE_ARRAY<br />encoded as WKB                               | [object with schema](https://geojson.org/schema/Geometry.json) | Binary<br />encoded as FlatBuffers | GEOMETRY (BLOB) | Geometry           |
-| bounding-box<br />x and y only, no z                         | [tbd](https://github.com/opengeospatial/geoparquet/pull/191) | array<br />minItems: 4<br />maxItems: 4<br />items: number   | Json?                              | ?               | ?                  |
-| *required* (not a datatype)                                  | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) | null                                                         | ?                                  | NULL            | -                  |
+For more details how the different fiboa data types will be encoded in the different encodings see:
+- [GeoJSON](../geojson/datatypes.md)
+- [GeoParquet](../geoparquet/datatypes.md)
+- [Other](../other/datatypes.md)
 
-## Unsupported Data Types
-
-The following data types occur e.g. in Parquet, but are not currently supported in fiboa.
-
-| (Geo)Parquet                                                 | (Geo)JSON                                                    | FlatGeoBuf | Geopackage | Shapefile |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ---------- | ---------- | --------- |
-| FLOAT16                                                      | number<br />minimum: ?<br />maximum: ?                       | Float?     | FLOAT?     | Float?    |
-| FIXED_LEN_BYTE_ARRAY                                         | string<br />contentEncoding: binary<br />minLength and maxLength | Binary?    | BLOB?      | BLOB?     |
-| UUID (FIXED_LEN_BYTE_ARRAY)                                  | string<br />format: uuid                                     | Binary?    | BLOB?      | ?         |
-| TimeType (INT32)<br />isAdjustedToUTC: true<br />unit: MILLIS<br />(deprecated: TIME_MILLIS) | string<br />format: time<br />pattern: Z$                    | ?          | TEXT?      | Text?     |
-| Struct                                                       | object                                                       | Json?      | -          | -         |
-| JSON                                                         | any                                                          | Json       | -          | -         |
-
-Additionally, Shapefile has the big drawback that the field name limit is 10 characters.
-As such it doesn't work well with fiboa and its extension mechanism.
-
-## Potential issues in conversion
-
-- NaN and +/-Infinity can't be encoded in JSON
-- The micro/nanosecond precision of Datetime / Times may got lost
+| fiboa data type                                              | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| boolean                                                      | a value with only two possible states, e.g. true/false, on/off, or yes/no |
+| int8                                                         | integer number without decimal places<br />minimum value: -128<br />maximum value: 127 |
+| uint8                                                        | integer number without decimal places<br />minimum value: 0<br />maximum value: 255 |
+| int16                                                        | integer number without decimal places<br />minimum value: -32768<br />maximum value: 32767 |
+| uint16                                                       | integer number without decimal places<br />minimum value: 0<br />maximum value: 65535 |
+| int32                                                        | integer number without decimal places<br />minimum value: -2147483648<br />maximum value: 2147483647 |
+| uint32                                                       | integer number without decimal places<br />minimum value: 0<br />maximum value: 4294967295 |
+| int64                                                        | integer number without decimal places<br />minimum value: -9223372036854775808<br />maximum value: 9223372036854775807 |
+| uint64                                                       | integer number without decimal places<br />minimum value: 0<br />maximum value: 18446744073709551615 |
+| float<br />IEEE 32-bit                                       | floating-point number<br />minimum value: ?<br />maximum value: ? |
+| double<br />IEEE 64-bit                                      | floating-point number<br />minimum value: ?<br />maximum value: ? |
+| binary                                                       | binary data, e.g. an image                                   |
+| string<br />charset: UTF-8                                   | texts                                                        |
+| array                                                        | a list of values                                             |
+| object<br />keys: string<br />values: any                    | key-value-pairs - the keys are always textual and must be known upfront. |
+| enum<br />string/integer                                     | integers or texts with a pre-defined list of allowed values  |
+| date                                                         | a date consisting of year, month and day, e.g. 2022-07-25    |
+| date-time<br />with milliseconds<br />timezone: UTC timezone | a date (year, month, date) and time (hour, minute, second and optionally milliseconds) in the UTC timezone |
+| geometry                                                     | A spatial geometry, e.g. a point, line or polygon.           |
+| bounding-box<br />x and y only, no z                         | A two-dimensional spatial bounding box                       |

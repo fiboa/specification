@@ -1,6 +1,7 @@
 # GeoJSON Encoding
 
 - **[Examples](examples/)**
+- **[Datatype mapping](datatypes.md)**
 
 **NOTE: The GeoJSON encoding is still work in progress.**
 
