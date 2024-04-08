@@ -3,29 +3,31 @@
 The following table shows the data types that are used by fiboa in the Property definitions.
 It also shows the mapping to the GeoParquet data types.
 
-| fiboa data type                                              | (Geo)Parquet                                                 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| boolean                                                      | BOOLEAN                                                      |
-| int8                                                         | IntType<br />bitWidth: 8<br />isSigned: true<br />(deprecated: INT_8) |
-| uint8                                                        | IntType<br />bitWidth: 8<br />isSigned: false<br />(deprecated: UINT_8) |
-| int16                                                        | IntType<br />bitWidth: 16<br />isSigned: true<br />(deprecated: INT_16) |
-| uint16                                                       | IntType<br />bitWidth: 16<br />isSigned: false<br />(deprecated: UINT_16) |
-| int32                                                        | IntType<br />bitWidth: 32<br />isSigned: true<br />(deprecated: INT_32) |
-| uint32                                                       | IntType<br />bitWidth: 64<br />isSigned: false<br />(deprecated: UINT_32) |
-| int64                                                        | IntType<br />bitWidth: 64<br />isSigned: true<br />(deprecated: INT_64) |
-| uint64                                                       | IntType<br />bitWidth: 64<br />isSigned: false<br />(deprecated: UINT_64) |
-| float<br />IEEE 32-bit                                       | FLOAT                                                        |
-| double<br />IEEE 64-bit                                      | DOUBLE                                                       |
-| binary                                                       | BYTE_ARRAY                                                   |
-| string<br />charset: UTF-8                                   | STRING (BYTE_ARRAY)                                          |
-| array                                                        | LIST                                                         |
-| object<br />keys: string<br />values: any                    | MAP                                                          |
-| enum<br />string/integer                                     | ENUM (BYTE_ARRAY)                                            |
-| date                                                         | DATE (INT32)                                                 |
-| date-time<br />with milliseconds<br />timezone: UTC timezone | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) |
-| geometry                                                     | BYTE_ARRAY<br />encoded as WKB                               |
-| bounding-box<br />x and y only, no z                         | [tbd](https://github.com/opengeospatial/geoparquet/pull/191) |
-| *required* (not a datatype)                                  | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) |
+| fiboa Schema data type                              | (Geo)Parquet                                                 |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| boolean                                             | BOOLEAN                                                      |
+| int8                                                | IntType<br />bitWidth: 8<br />isSigned: true<br />(deprecated: INT_8) |
+| uint8                                               | IntType<br />bitWidth: 8<br />isSigned: false<br />(deprecated: UINT_8) |
+| int16                                               | IntType<br />bitWidth: 16<br />isSigned: true<br />(deprecated: INT_16) |
+| uint16                                              | IntType<br />bitWidth: 16<br />isSigned: false<br />(deprecated: UINT_16) |
+| int32                                               | IntType<br />bitWidth: 32<br />isSigned: true<br />(deprecated: INT_32) |
+| uint32                                              | IntType<br />bitWidth: 64<br />isSigned: false<br />(deprecated: UINT_32) |
+| int64                                               | IntType<br />bitWidth: 64<br />isSigned: true<br />(deprecated: INT_64) |
+| uint64                                              | IntType<br />bitWidth: 64<br />isSigned: false<br />(deprecated: UINT_64) |
+| float<br />IEEE 32-bit                              | FLOAT                                                        |
+| double<br />IEEE 64-bit                             | DOUBLE                                                       |
+| binary                                              | BYTE_ARRAY                                                   |
+| string<br />charset: UTF-8                          | STRING (BYTE_ARRAY)                                          |
+| array                                               | LIST                                                         |
+| object<br />keys: string<br />values: any           | MAP                                                          |
+| date                                                | DATE (INT32)                                                 |
+| date-time<br />with milliseconds<br />timezone: UTC | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) |
+| geometry                                            | BYTE_ARRAY<br />encoded as WKB                               |
+| bounding-box<br />x and y only, no z                | [tbd](https://github.com/opengeospatial/geoparquet/pull/191) |
+| *if a field is not required*                        | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) |
+
+The integer data types and the data type string can also be mapped to the ENUM data type in Parquet
+if a pre-defined set of values is available.
 
 ## Unsupported Data Types
 

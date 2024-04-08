@@ -1,6 +1,6 @@
 # Core Specification
 
-- **Schema:** <https://fiboa.github.io/specification/v0.0.2/schema.yaml>
+- **Schema:** <https://fiboa.github.io/specification/v0.1.0/schema.yaml>
 
 **NOTE: The Core Specification is still work in progress.**
 
@@ -10,8 +10,8 @@ Collection and Feature level.
 - A Collection refers to a group of one or more features.
 - A Feature is a single field geometry with additional properties.
 
-A limited set of [data types](datatypes.md) have been defined so that a clear migration path
-between encodings can be provided.
+A limited set of [data types](https://github.com/fiboa/schema/blob/v0.1.0/datatypes.md)
+have been defined so that a clear migration path between encodings can be provided.
 
 ## Collections
 
@@ -56,9 +56,9 @@ Validators may flag the value as invalid if it exceeds a certain threshold.
 
 ### Determination Properties
 
-| Property Name          | Data Type | Description |
-| ---------------------- | --------- | ----------- |
-| determination_method   | enum      | The boundary creation method, one of the values below. |
+| Property Name          | Data Type | Description                                                  |
+| ---------------------- | --------- | ------------------------------------------------------------ |
+| determination_method   | string    | The boundary creation method, one of the values below.       |
 | determination_datetime | datetime  | The last timestamp at which the field did exist and was observed, in UTC. |
 
 **determination_datetime**: In case the source of the information is an

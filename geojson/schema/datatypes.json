@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fiboa.example/v0.0.2/geojson/datatypes.json",
+  "$id": "https://fiboa.github.io/specification/v0.1.0/geojson/datatypes.json",
   "$defs": {
     "boolean": {
       "type": "boolean"
@@ -68,16 +68,6 @@
     "object": {
       "type": "object",
       "additionalProperties": false
-    },
-    "enum": {
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "integer"
-        }
-      ]
     },
     "date": {
       "type": "string",
