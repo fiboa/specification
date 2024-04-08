@@ -8,11 +8,7 @@ Thumbs.db
 /.idea/
 /.vscode/
 
-# Node / npm
-.npm
-/node_modules/
-package-lock.json
-
 # Python
+Pipfile.lock
 __pycache__/
 *.egg-info/
