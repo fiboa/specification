@@ -1,0 +1,62 @@
+{
+  "fiboa_version": "0.1.0",
+  "fiboa_extensions": [],
+  "stac_version": "1.0.0",
+  "type": "Collection",
+  "id": "de_nrw",
+  "title": "Field boundaries for North Rhine-Westphalia (NRW), Germany",
+  "description": "A field block (German: \"Feldblock\") is a contiguous agricultural area surrounded by permanent boundaries, which is cultivated by one or more farmers with one or more crops, is fully or partially set aside or is fully or partially taken out of production. Field blocks are classified separately according to the main land uses of arable land, grassland, permanent crops, 2nd pillar and other. Since 2005, field blocks in NRW have represented the area reference within the framework of the Integrated Administration and Control System (IACS) for EU agricultural subsidies.",
+  "license": "proprietary",
+  "providers": [
+    {
+      "name": "Land Nordrhein-Westfalen / Open.NRW",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://www.opengeodata.nrw.de/produkte/umwelt_klima/bodennutzung/landwirtschaft/"
+    },
+    {
+      "name": "fiboa CLI",
+      "roles": [
+        "processor"
+      ],
+      "url": "https://pypi.org/project/fiboa-cli"
+    },
+    {
+      "name": "Source Cooperative",
+      "roles": [
+        "host"
+      ],
+      "url": "https://beta.source.coop/fiboa/de-nrw/"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          5.8659988131,
+          50.3226989435,
+          9.4476584861,
+          52.5310351488
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2005-02-28T00:00:00Z",
+          "2024-03-28T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "href": "https://www.govdata.de/dl-de/by-2-0",
+      "title": "Data licence Germany - attribution - Version 2.0",
+      "type": "text/html",
+      "rel": "license"
+    }
+  ]
+}

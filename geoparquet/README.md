@@ -1,21 +1,16 @@
-# Geoparquet Encoding
+# Geoparquet Encoding Specification
 
 - **[Examples](examples/)**
 - **[Datatype mapping](datatypes.md)**
 
 **NOTE: The GeoParquet encoding is still work in progress. Feedback is always welcome!**
 
-## Specification
+## Collection
 
-## Collection Properties
+The GeoParquet file must embed the [fiboa Collection](../core/README.md#collection)
+in the Parquet metadata in a property named `fiboa`.
 
-Collection-level metadata must be provided as a STAC Collection.
-
-The GeoParquet file must embed the STAC Collection in the file-level Parquet metadata in a property
-named `fiboa`.
-
-It is recommended to provide the STAC Collection as a separate JSON file, too.
-In this case the STAC Collection should contain an asset pointing to the GeoParquet file.
+It is recommended to provide the fiboa Collection as a separate JSON file, too.
 
 ## Feature Properties
 

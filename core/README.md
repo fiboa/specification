@@ -13,12 +13,10 @@ Collection and Feature level.
 A limited set of [data types](https://github.com/fiboa/schema/blob/v0.1.0/datatypes.md)
 have been defined so that a clear migration path between encodings can be provided.
 
-## Collections
+## Collection
 
-Collection-level metadata must be provided in a STAC Collection that contains an
-asset that points to fiboa-compliant Features.
-
-The invidiual encodings may decide to embed the STAC Collection or make it available separately.
+Collection-level metadata must be provided in an object that contains the properties below.
+The invidiual encodings may decide to embed the collection or make it available separately.
 
 ### Properties
 
@@ -28,6 +26,12 @@ The invidiual encodings may decide to embed the STAC Collection or make it avail
 | fiboa_extensions | array\<string> | A list of URIs to extensions this entity implements. |
 
 Generally, the version and the extensions must be uniform per Collection.
+
+**RECOMMENDATION:** The collection can be enriched with metadata that complies to the
+[STAC Collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
+In this case, it is should contain an asset pointing to the data.
+
+Other properties are also allowed to be provided, but are not described by this specification.
 
 ## Features
 
