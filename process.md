@@ -27,7 +27,7 @@ Check the [contributing guide](CONTRIBUTING.md) for more details.
 
 ## Release Process
 
-To release a new version of the STAC spec
+To release a new version of the fiboa specification
 the following list of tasks must be done.
 
 - **Update Issue Tracker**:

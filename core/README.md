@@ -2,7 +2,7 @@
 
 - **Schema:** <https://fiboa.github.io/specification/v0.1.0/schema.yaml>
 
-**NOTE: The Core Specification is still work in progress.**
+**NOTE: The Core Specification is still work in progress. Feedback is always welcome!**
 
 This specification describes the core data and metadata properties for both at the
 Collection and Feature level.
@@ -27,7 +27,7 @@ The invidiual encodings may decide to embed the STAC Collection or make it avail
 | fiboa_version    | string         | **REQUIRED.** Version number of the fiboa specification this entity implements. |
 | fiboa_extensions | array\<string> | A list of URIs to extensions this entity implements. |
 
-Generally, the version and the extensions must be uniform per Collection. 
+Generally, the version and the extensions must be uniform per Collection.
 
 ## Features
 

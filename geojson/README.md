@@ -3,7 +3,7 @@
 - **[Examples](examples/)**
 - **[Datatype mapping](datatypes.md)**
 
-**NOTE: The GeoJSON encoding is still work in progress.**
+**NOTE: The GeoJSON encoding is still work in progress. Feedback is always welcome!**
 
 ## Specification
 

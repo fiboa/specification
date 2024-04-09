@@ -3,7 +3,7 @@
 - **[Examples](examples/)**
 - **[Datatype mapping](datatypes.md)**
 
-**NOTE: The GeoParquet encoding is still work in progress.**
+**NOTE: The GeoParquet encoding is still work in progress. Feedback is always welcome!**
 
 ## Specification
 
