@@ -1,0 +1,35 @@
+$schema: https://fiboa.github.io/schema/v0.1.0/schema.json
+required:
+  - id
+  - geometry
+properties:
+  id:
+    type: string
+    minLength: 1
+  collection:
+    type: string
+    minLength: 1
+  geometry:
+    type: geometry
+  bbox:
+    type: bounding-box
+  area:
+    type: float
+    exclusiveMinimum: 0
+    maximum: 100000
+  perimeter:
+    type: float
+    exclusiveMinimum: 0
+    maximum: 125000
+  determination_datetime:
+    type: date-time
+  determination_method:
+    type: string
+    enum:
+     - manual
+     - driven
+     - surveyed
+     - administrative
+     - auto-operation
+     - auto-imagery
+     - unknown
