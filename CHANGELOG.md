@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Migrate schemas to fiboa Schema
+- Collections don't need to be STAC Collections (but it's recommended)
+- Collections can be included in GeoJSON files
+- Collections can be linked to from the GeoJSON files
 
 ### Deprecated
 
