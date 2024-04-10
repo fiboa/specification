@@ -10,6 +10,6 @@ pymarkdownlnt = ">=0.9"
 [scripts]
 test-docs = "pymarkdown -d md024 scan ."
 test-schema = "fiboa validate-schema core/schema/schema.yaml"
-test-geojson = "fiboa validate geojson/examples -e https://fiboa.github.io/specification/v0.1.0/schema.yaml,core/schema/schema.yaml"
-test-geoparquet = "fiboa validate geoparquet/examples -e https://fiboa.github.io/specification/v0.1.0/schema.yaml,core/schema/schema.yaml"
+test-geojson = "fiboa validate geojson/examples -s core/schema/schema.yaml --data"
+test-geoparquet = "fiboa validate geoparquet/examples -s core/schema/schema.yaml --data"
 create-geoparquet = "fiboa create-geoparquet geojson/examples/featurecollection/features.json -o geoparquet/examples/example.parquet -s core/schema/schema.yaml"

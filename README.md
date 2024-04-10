@@ -2,10 +2,9 @@
 
 > Making field boundaries openly available in a unified way.
 
-**Version:** 0.1.0
+**Version:** 0.2.0
 
-**NOTE:** Most of the content in this repository is still placeholder while
-we are developing the specification.
+**NOTE: The fiboa specification is still work in progress. Feedback is always welcome!**
 
 The specification consists of four parts:
 

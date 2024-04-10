@@ -9,14 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- `perimeter` property
+- ...
 
 ### Changed
 
-- Migrate schemas to fiboa Schema
-- Collections don't need to be STAC Collections (but it's recommended)
-- Collections can be included in GeoJSON files
-- Collections can be linked to from the GeoJSON files
+- ...
 
 ### Deprecated
 
@@ -29,6 +26,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - ...
+
+## [v0.2.0] - 2024-04-10
+
+### Added
+
+- `perimeter` property
+
+### Changed
+
+- Migrate schemas to fiboa Schema
+- Collections don't need to be STAC Collections (but it's recommended)
+- Collections can be included in GeoJSON files
+- Collections can be linked to from the GeoJSON files
 
 ## [v0.1.0] - 2024-02-28
 
@@ -61,7 +71,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - First release
 
-[Unreleased]: <https://github.com/fiboa/specification/compare/v0.1.0...main>
+[Unreleased]: <https://github.com/fiboa/specification/compare/v0.2.0...main>
+[v0.2.0]: <https://github.com/fiboa/specification/compare/v0.1.0...v0.2.0>
 [v0.1.0]: <https://github.com/fiboa/specification/compare/v0.0.2...v0.1.0>
 [v0.0.2]: <https://github.com/fiboa/specification/compare/v0.0.1...v0.0.2>
 [v0.0.1]: <https://github.com/fiboa/specification/tree/v0.0.1>
