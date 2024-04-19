@@ -8,7 +8,8 @@ which enables and accelerates additional layers of collaboration and detail via 
 
 The fiboa specification is a work in progress.
 Feedback is welcome and encouraged.
-You can follow our [CHANGELOG](https://github.com/fiboa/specification/blob/main/CHANGELOG.md) to track our progress. 
+You can follow our [CHANGELOG](https://github.com/fiboa/specification/blob/main/CHANGELOG.md) to track our progress.
+
 ## Key Features
 
 The center of fiboa is a specification for representing field boundary data in GeoJSON & GeoParquet in a standard way,
