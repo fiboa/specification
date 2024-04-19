@@ -4,19 +4,18 @@ The Field Boundaries for Agriculture (fiboa) project is focused on making field 
 We believe that the fiboa specification is a foundational aspect of agricultural field boundary data interoperability
 which enables and accelerates additional layers of collaboration and detail via custom extensions.
 
-- **Version: 0.2.0**
+- Version: **0.2.0**
 
 The fiboa specification is a work in progress.
 Feedback is welcome and encouraged.
 You can follow our [CHANGELOG](https://github.com/fiboa/specification/blob/main/CHANGELOG.md) to track our progress. 
- 
 ## Key Features
 
 The center of fiboa is a specification for representing field boundary data in GeoJSON & GeoParquet in a standard way,
-with several optional ‘extensions’ that specify additional attributes.
+with several optional extensions that specify additional attributes.
 The core data schema of fiboa is quite simple: it’s a set of definitions for attribute names and values.
 The number of attributes in the core is quite small by design.
-The idea is that most of the ‘interesting’ data about the field will be located in ‘extensions’. 
+The idea is that most of the ‘interesting’ data about the field will be located in extensions.
 
 The specification consists of three parts:
 
