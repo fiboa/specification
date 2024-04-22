@@ -2,8 +2,10 @@
 
 The Field Boundaries for Agriculture (fiboa) project is focused on making field boundary data openly available in a unified format on a global scale.
 We believe that the fiboa specification is a foundational aspect of agricultural field boundary data interoperability
-which enables and accelerates additional layers of collaboration and detail via custom extensions. This repository contains
-the core specification for the fiboa data schema. For more context, information on the ecosystem, and points of contact see the [fiboa github organization](https://github.com/fiboa/).
+which enables and accelerates additional layers of collaboration and detail via custom extensions.
+This repository contains the core specification for fiboa, including the data schema.
+For more context, information on the ecosystem, and points of contact see the
+[fiboa github organization](https://github.com/fiboa/).
 
 - Version: **0.2.0**
 
