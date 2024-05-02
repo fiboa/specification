@@ -39,7 +39,7 @@ Other properties are also allowed to be provided, but are not described by this 
 
 | Property Name | Data Type | Description |
 | ------------- | --------- | ----------- |
-| id            | string    | **REQUIRED.** A unique identifier for the field. It must be unique within the [Collection](#collection) (see above). |
+| id            | string    | **REQUIRED.** A unique identifier for the field. It must be unique within the [Collection](#collection). |
 | collection    | string    | The identifier of the parent collection. |
 
 The collection identifier is usually only needed for merged datasets.
