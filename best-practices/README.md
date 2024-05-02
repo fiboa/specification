@@ -1,6 +1,7 @@
 # Best Practices
 
-**NOTE:** We are in an early stage. More best practices will evolve over time.
+> [!NOTE]  
+> We are in an early stage. More best practices will evolve over time.
 
 ## Casing
 

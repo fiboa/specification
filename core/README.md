@@ -1,17 +1,27 @@
 # Core Specification
 
-- **Schema:** <https://fiboa.github.io/specification/v0.2.0/schema.yaml>
-
-**NOTE: The Core Specification is still work in progress. Feedback is always welcome!**
-
 This specification describes the core data and metadata properties for both at the
 Collection and Feature level.
 
 - A Collection refers to a group of one or more features.
 - A Feature is a single field geometry with additional properties.
 
-A limited set of [data types](https://github.com/fiboa/schema/blob/v0.1.0/datatypes.md)
-have been defined so that a clear migration path between encodings can be provided.
+> [!NOTE]
+> The Core Specification is still work in progress. Feedback is welcome!
+
+- **Schema:** <https://fiboa.github.io/specification/v0.2.0/schema.yaml>
+
+## Schema
+
+The data types in the following document are defined in
+[fiboa Schema](https://github.com/fiboa/schema), v0.1.0.
+
+fiboa Schema defines a (limited) set of data types and a vocabulary to express
+additional constraints for these data types.
+This allows to define a clear mapping between the core specification and its encodings.
+
+- [Data types](https://github.com/fiboa/schema/blob/v0.1.0/datatypes.md)
+- [Vocabulary](https://github.com/fiboa/schema/blob/v0.1.0/README.md#vocabulary)
 
 ## Collection
 
@@ -27,9 +37,11 @@ The invidiual encodings may decide to embed the collection or make it available 
 
 Generally, the version and the extensions must be uniform per Collection.
 
-**RECOMMENDATION:** The collection can be enriched with metadata that complies to the
-[STAC Collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
-In this case, it should contain an asset pointing to the data.
+> [!TIP]
+> The collection can be enriched with metadata that complies to the
+> [STAC Collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
+> 
+> In this case, it should contain an asset pointing to the data.
 
 Other properties are also allowed to be provided, but are not described by this specification.
 
@@ -70,7 +82,9 @@ interval or a set of timestamps, use the end.
 For example, for ML you'd use the timestamp of the last image and not the
 timestamp of the actual execution.
 
-More temporal properties will be defined in a [timestamps extension](https://github.com/fiboa/extensions/issues/1).
+> [!NOTE]  
+> We aim to define more temporal properties in a
+> [timestamps extension](https://github.com/fiboa/extensions/issues/1).
 
 **determination_method**: Allowed values:
 - `manual` (hand drawn from imagery)

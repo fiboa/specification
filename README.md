@@ -9,9 +9,10 @@ For more context, information on the ecosystem, and points of contact see the
 
 - Version: **0.2.0**
 
-The fiboa specification is a work in progress.
-Feedback is welcome and encouraged.
-You can follow our [CHANGELOG](https://github.com/fiboa/specification/blob/main/CHANGELOG.md) to track our progress.
+> [!IMPORTANT]  
+> The fiboa specification is a work in progress.
+> Feedback is welcome and encouraged.
+> You can follow our [CHANGELOG](https://github.com/fiboa/specification/blob/main/CHANGELOG.md) to track our progress.
 
 ## Key Features
 

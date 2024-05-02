@@ -25,9 +25,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- GeoParquet encoding:
-  - Properties that are optional can be omitted if all values are null values
-  - Minor Clarifications
+- Various minor clarifications and editorial enhancements
+- GeoParquet encoding: Properties that are optional can be omitted if all values are null values
+- GeoJSON encoding: Clarify the encoding of the top-level properties (including `links` and `fiboa`)
+- GeoJSON encoding: Clarify the use of RFC 7946
 
 ## [v0.2.0] - 2024-04-10
 
