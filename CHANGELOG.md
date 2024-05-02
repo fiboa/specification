@@ -25,7 +25,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- ...
+- GeoParquet encoding:
+  - Properties that are optional can be omitted if all values are null values
+  - Minor Clarifications
 
 ## [v0.2.0] - 2024-04-10
 
