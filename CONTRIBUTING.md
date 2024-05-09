@@ -45,6 +45,6 @@ Finally, you can run the tests as follows:
 - To check the markdown run: `pipenv run test-docs`
 - To check the fiboa schema run: `pipenv run test-schema`
 - To check the examples run:
-  - `pipenv run test-geojson` for GeoJSON
+  - `pipenv run test-geojson-collection` and `pipenv run test-geojson-features` for GeoJSON
   - `pipenv run test-geoparquet` for GeoParquet
 - To create a GeoParquet from the GeoJSON examples: `pipenv run create-geoparquet`

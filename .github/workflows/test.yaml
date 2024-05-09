@@ -15,6 +15,7 @@ jobs:
           pip install pipenv
           pipenv install
       - run: pipenv run test-docs
-#     - run: pipenv run test-schema
-      - run: pipenv run test-geojson
+      - run: pipenv run test-schema
+      - run: pipenv run test-geojson-features
+      - run: pipenv run test-geojson-collection
       - run: pipenv run test-geoparquet
