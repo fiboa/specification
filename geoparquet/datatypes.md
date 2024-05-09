@@ -19,11 +19,11 @@ It also shows the mapping to the GeoParquet data types.
 | binary                                              | BYTE_ARRAY                                                   |
 | string<br />charset: UTF-8                          | STRING (BYTE_ARRAY)                                          |
 | array                                               | LIST                                                         |
-| object<br />keys: string<br />values: any           | MAP                                                          |
+| object<br />keys: string<br />values: any           | STRUCT / MAP                                                 |
 | date                                                | DATE (INT32)                                                 |
 | date-time<br />with milliseconds<br />timezone: UTC | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) |
 | geometry                                            | BYTE_ARRAY<br />encoded as WKB                               |
-| bounding-box<br />x and y only, no z                | [tbd](https://github.com/opengeospatial/geoparquet/pull/191) |
+| bounding-box<br />x and y only, no z                | STRUCT(xmin FLOAT, ymin FLOAT, xmax FLOAT, ymax FLOAT)       |
 | *if a field is not required*                        | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) |
 
 The integer data types and the data type string can also be mapped to the ENUM data type in Parquet
