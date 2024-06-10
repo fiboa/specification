@@ -12,11 +12,14 @@ We aim to support any future version of FlatGeobuf, too.
 
 ## Collection
 
-The FlatGeobuf file must embed the [fiboa Collection](../core/README.md#collection) 
-in the `Header` table's [`metadata`](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/header.fbs#L81) 
+The FlatGeobuf file must provide the [fiboa Collection](../core/README.md#collection) as a separate JSON file.
+Optionally, if the tool supports it, the fiboa collection can be written into the `Header` table's 
+[`metadata`](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/header.fbs#L81) 
 field in a property named `fiboa` within a JSON-structured object.
 
-It is recommended to additionally provide the fiboa Collection as a separate JSON file, too.
+> [!NOTE]
+> As of GDAL/OGR 3.9.0 the [FlatGeobuf driver](https://gdal.org/drivers/vector/flatgeobuf.html)
+does not support writing the Header's `metadata` field. 
 
 ## Features
 
