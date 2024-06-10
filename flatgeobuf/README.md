@@ -2,7 +2,6 @@
 
 The FlatGeobuf encoding defines how field boundaries compliant to fiboa must be published.
 The generic FlatGeobuf format is defined on the [FlatGeobuf website](https://flatgeobuf.org/).
-We aim to support any future version of FlatGeobuf, too.
 
 > [!NOTE]
 > The FlatGeobuf encoding is still work in progress. Feedback is welcome!
