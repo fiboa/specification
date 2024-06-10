@@ -24,11 +24,10 @@ Each [fiboa Feature](../core/README.md#features) corresponds to a Flatbuffer rec
 [`Feature`](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/feature.fbs#L16-L20)
 table of a FlatGeobuf file.
 
-The properties defined for fiboa Features are made available as the 
+All properties defined for fiboa Features, except the Geometry, are made available as the 
 [`properties`](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/feature.fbs#L18) 
-vector of a FlatGeobuf Feature. Keys and data types are encoded into the 
-[`columns`](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/feature.fbs#L19)
-schema.
+vector of a FlatGeobuf Feature. Key names and data types are encoded into the 
+[Header's `columns`](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/header.fbs#L75) schema.
 
 Properties that are optional can be omitted if all values are
 [null values](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/header.fbs#L52)
