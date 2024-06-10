@@ -23,7 +23,7 @@ It also shows the mapping to the [FlatGeobuf data types](https://github.com/flat
 | date                                                | DateTime (ISO 8601 date)                                                 |
 | date-time<br />with milliseconds<br />timezone: UTC | DateTime (ISO 8601 date time) |
 | geometry                                            | [Geometry](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/feature.fbs#L5-L14)                               |
-| bounding-box<br />x and y only, no z                | [envelope](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/header.fbs#L69) <br>type: [double]      |
+| bounding-box<br />x and y only, no z                | Json <br>Bounds Array [minX, minY, maxX, maxY]|
 
 ## Potential issues in conversion
 
