@@ -39,5 +39,3 @@ The mapping between the
 [FlatGeobuf data types](https://github.com/flatgeobuf/flatgeobuf/blob/ee7c8f5f45c67dd4a84a51fef518dfebc3e19d0a/src/fbs/header.fbs#L26-L42)
 and the fiboa data types, can be found in the [data type mapping](datatypes.md).
 
-
-
