@@ -16,10 +16,6 @@ The FlatGeobuf file must embed the [fiboa Collection](../core/README.md#collecti
 field in a property named `fiboa` within a JSON-structured object.
 It is recommended to also provide the fiboa Collection as a separate JSON file.
 
-> [!NOTE]
-> Starting in GDAL/OGR 3.9.0 the [FlatGeobuf driver](https://gdal.org/drivers/vector/flatgeobuf.html)
-supports writing to the Header's `metadata` field with the `-mo` option, i.e. `-mo "fiboa_version=0.2.0"`.
-
 ## Features
 
 Each [fiboa Feature](../core/README.md#features) corresponds to a Flatbuffer record in the 
