@@ -83,8 +83,8 @@ For example, for ML you'd use the timestamp of the last image and not the
 timestamp of the actual execution.
 
 > [!NOTE]  
-> We aim to define more temporal properties in a
-> [timestamps extension](https://github.com/fiboa/extensions/issues/1).
+> We define more temporal properties in the
+> [timestamps extension](https://github.com/fiboa/timestamps).
 
 **determination_method**: Allowed values:
 - `manual` (hand drawn from imagery)
