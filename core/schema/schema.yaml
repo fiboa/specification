@@ -9,6 +9,8 @@ properties:
   collection:
     type: string
     minLength: 1
+  administrative:
+    type: boolean
   geometry:
     type: geometry
   bbox:
@@ -29,7 +31,8 @@ properties:
      - manual
      - driven
      - surveyed
-     - administrative
      - auto-operation
      - auto-imagery
      - unknown
+  determination_details:
+    type: string

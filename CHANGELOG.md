@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- ...
+- Property `administrative`
+- Property `determination_details`
 
 ### Changed
 
@@ -21,7 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- ...
+- Value `administrative` was removed from `determination_method` in favour of the new property `administrative`
 
 ### Fixed
 
@@ -30,6 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - GeoJSON encoding: Clarify the encoding of the top-level properties (including `links` and `fiboa`)
 - GeoJSON encoding: Clarify the use of RFC 7946
 - GeoParquet encoding for bounding boxes and objects
+- Added descriptions to the allowed values for `determination_method`
 
 ## [v0.2.0] - 2024-04-10
 

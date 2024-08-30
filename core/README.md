@@ -40,7 +40,7 @@ Generally, the version and the extensions must be uniform per Collection.
 > [!TIP]
 > The collection can be enriched with metadata that complies to the
 > [STAC Collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
-> 
+>
 > In this case, it should contain an asset pointing to the data.
 
 Other properties are also allowed to be provided, but are not described by this specification.
@@ -49,10 +49,11 @@ Other properties are also allowed to be provided, but are not described by this 
 
 ### General Properties
 
-| Property Name | Data Type | Description |
-| ------------- | --------- | ----------- |
-| id            | string    | **REQUIRED.** A unique identifier for the field. It must be unique within the [Collection](#collection). |
-| collection    | string    | The identifier of the parent collection. |
+| Property Name  | Data Type | Description |
+| -------------- | --------- | ----------- |
+| id             | string    | **REQUIRED.** A unique identifier for the field. It must be unique within the [Collection](#collection). |
+| collection     | string    | The identifier of the parent collection. |
+| administrative | boolean   | Determines whether the boundary is coming from an official (usually governmental) source. |
 
 The collection identifier is usually only needed for merged datasets.
 
@@ -76,6 +77,7 @@ Validators may flag the value as invalid if it exceeds a certain threshold.
 | ---------------------- | --------- | ------------------------------------------------------------ |
 | determination_method   | string    | The boundary creation method, one of the values below.       |
 | determination_datetime | datetime  | The last timestamp at which the field did exist and was observed, in UTC. |
+| determination_details  | string    | Further details about the determination, especially the methodology. |
 
 **determination_datetime**: In case the source of the information is an
 interval or a set of timestamps, use the end.
@@ -87,10 +89,10 @@ timestamp of the actual execution.
 > [timestamps extension](https://github.com/fiboa/timestamps).
 
 **determination_method**: Allowed values:
-- `manual` (hand drawn from imagery)
-- `driven`
-- `surveyed`
-- `administrative`
-- `auto-operation` (auto-created from operation)
-- `auto-imagery` (auto-created from imagery)
-- `unknown`
+
+- `manual`: Hand created from imagery, e.g. using a tool to point and click on a map.
+- `surveyed`: Determined through a professional land survey measuring the actual distances and angles on the ground.
+- `driven`: An operator physically drove (or walked) around the perimeter of the field with a geopositioning device (e.g. GPS) that records the path taken. The operator actively and explicitly selected in the terminal to create a boundary.
+- `auto-operation`: Automatically created from operation. Similar to driven but it is an implicit result of normal agricultural operations, so this is usually using the coverage map to determine the boundary.
+- `auto-imagery`: Automatically created from aerial or satellite imagery, e.g. using CV or ML techniques.
+- `unknown`: The default value. This often means it is defined by some other authority (see `administrative`) and is likely one of the other methods but there's no knowledge of which exactly.
