@@ -13,11 +13,11 @@ properties:
     type: geometry
   bbox:
     type: bounding-box
-  area:
+  area_ha:
     type: float
     exclusiveMinimum: 0
     maximum: 100000
-  perimeter:
+  perimeter_m:
     type: float
     exclusiveMinimum: 0
     maximum: 125000
