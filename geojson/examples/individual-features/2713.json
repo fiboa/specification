@@ -6,7 +6,7 @@
     "determination_datetime": "2005-02-28T00:00:00Z",
     "nutz_code": "A",
     "nutz_txt": "Ackerland",
-    "area": 1.8975000381469727
+    "area_ha": 1.8975000381469727
   },
   "geometry": {
     "type": "Polygon",

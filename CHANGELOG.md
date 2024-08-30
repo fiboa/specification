@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- ...
+- Renamed `perimeter` to `perimeter_m`
+- Renamed `area` to `area_ha`
 
 ### Deprecated
 
