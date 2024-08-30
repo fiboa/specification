@@ -2,6 +2,10 @@
   "id": "12324",
   "type": "Feature",
   "properties": {
+    "fiboa_version": "0.2.0",
+    "fiboa_extensions": [
+      "https://fiboa.github.io/flik-extension/v0.1.0/schema.yaml"
+    ],
     "flik": "DENWLI0542130247",
     "determination_datetime": "2005-02-28T00:00:00Z",
     "nutz_code": "A",
@@ -58,12 +62,5 @@
         ]
       ]
     ]
-  },
-  "links": [
-    {
-      "href": "collection.json",
-      "rel": "collection",
-      "type": "application/json"
-    }
-  ]
+  }
 }

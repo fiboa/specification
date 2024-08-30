@@ -23,34 +23,18 @@ This allows to define a clear mapping between the core specification and its enc
 - [Data types](https://github.com/fiboa/schema/blob/v0.1.0/datatypes.md)
 - [Vocabulary](https://github.com/fiboa/schema/blob/v0.1.0/README.md#vocabulary)
 
-## Collection
-
-Collection-level metadata must be provided in an object that contains the properties below.
-The invidiual encodings may decide to embed the collection or make it available separately.
-
-### Properties
+## General Properties
 
 | Property Name    | Data Type      | Description |
 | ---------------- | -------------- | ----------- |
-| fiboa_version    | string         | **REQUIRED.** Version number of the fiboa specification this entity implements. |
-| fiboa_extensions | array\<string> | A list of URIs to extensions this entity implements. |
-
-Generally, the version and the extensions must be uniform per Collection.
-
-Other properties are also allowed to be provided, but are not described by this specification.
-
-## Features
-
-### General Properties
-
-| Property Name | Data Type | Description |
-| ------------- | --------- | ----------- |
-| id            | string    | **REQUIRED.** A unique identifier for the field. It must be unique within the [Collection](#collection). |
-| collection    | string    | The identifier of the parent collection. |
+| fiboa_version    | string         | **REQUIRED.** Version number of the fiboa specification the collection implements. |
+| fiboa_extensions | array\<string> | A list of URIs to extensions the collection implements. |
+| id               | string         | **REQUIRED.** A unique identifier for the field. It must be unique per collection, i.e. `collection` and `id` form a unique identifier. |
+| collection       | string         | The identifier of the parent collection. |
 
 The collection identifier is usually only needed for merged datasets.
 
-### Spatial Properties
+## Spatial Properties
 
 | Property Name | Data Type    | Description |
 | ------------- | ------------ | ----------- |
@@ -64,7 +48,7 @@ and must match the geometry's area/perimeter. If they do not match then the
 geometry should be considered canonical.
 Validators may flag the value as invalid if it exceeds a certain threshold.
 
-### Determination Properties
+## Determination Properties
 
 | Property Name          | Data Type | Description                                                  |
 | ---------------------- | --------- | ------------------------------------------------------------ |
