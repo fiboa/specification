@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Property `administrative`
+- Property `category`
 - Property `determination_details`
 
 ### Changed
@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Value `administrative` was removed from `determination_method` in favour of the new property `administrative`
+- Value `administrative` was removed from `determination_method` in favour of the new property `category`
 
 ### Fixed
 

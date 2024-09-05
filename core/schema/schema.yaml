@@ -9,8 +9,17 @@ properties:
   collection:
     type: string
     minLength: 1
-  administrative:
-    type: boolean
+  category:
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+      enum:
+        - conceptual
+        - operational
+        - economic
+        - administrative
+        - other
   geometry:
     type: geometry
   bbox:
