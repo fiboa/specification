@@ -1,4 +1,4 @@
-# Geoparquet Encoding Specification
+# GeoParquet Encoding Specification
 
 The Geoparquet encoding defines how field boundaries compliant to fiboa must be published.
 The generic GeoParquet format is defined in the
