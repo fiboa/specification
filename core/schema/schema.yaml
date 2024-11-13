@@ -9,6 +9,17 @@ properties:
   collection:
     type: string
     minLength: 1
+  category:
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+      enum:
+        - conceptual
+        - operational
+        - economic
+        - administrative
+        - other
   geometry:
     type: geometry
   bbox:
@@ -29,7 +40,8 @@ properties:
      - manual
      - driven
      - surveyed
-     - administrative
      - auto-operation
      - auto-imagery
      - unknown
+  determination_details:
+    type: string
