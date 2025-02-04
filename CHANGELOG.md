@@ -14,7 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- ...
+- Switched from v0.1.0 to v0.2.0 of the schema language
+- Renamed `fiboa_extensions` to `fiboa_schemas`
 
 ### Deprecated
 
@@ -22,7 +23,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Value `administrative` was removed from `determination_method` in favour of the new property `category`
+- Value `administrative` was removed from `determination_method` in favor of the new property `category`
+- `fiboa_version` in favor of adding the schema URL of the specification to `fiboa_schemas`.
 
 ### Fixed
 

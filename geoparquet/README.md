@@ -1,8 +1,9 @@
 # GeoParquet Encoding Specification
 
 The Geoparquet encoding defines how field boundaries compliant to fiboa must be published.
-The generic GeoParquet format is defined in the
-[OGC GeoParquet specification v1.0.0](https://geoparquet.org/releases/v1.0.0/).
+The generic GeoParquet format is defined in the OGC GeoParquet specification,
+either version [v1.0.0](https://geoparquet.org/releases/v1.0.0/)
+or [v1.1.0](https://geoparquet.org/releases/v1.1.0/).
 We aim to support any future version of GeoParquet, too.
 
 > [!NOTE]
@@ -13,7 +14,7 @@ We aim to support any future version of GeoParquet, too.
 
 ## Collection
 
-The GeoParquet file must embed the [fiboa Collection](../core/README.md#collection)
+The GeoParquet file must embed the collectio-level metadata
 in the Parquet metadata in a property named `fiboa`.
 
 It is recommended to additionally provide the fiboa Collection as a separate JSON file, too.
@@ -30,4 +31,3 @@ i.e. the column can be missing from the GeoParquet file.
 
 The mapping between the Parquet data types and the fiboa data types, can be found in the
 [data type mapping](datatypes.md).
-
