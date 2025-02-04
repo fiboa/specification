@@ -63,6 +63,8 @@ Other properties are also allowed to be provided, but are not described by this 
   not easy to change. Use examples include government programs, insurance, and legal land description.
 - `other`: Any other category of field boundaries.
 
+The categories are based on the [definitions of the AgGateway initiative](https://aggateway.org/Portals/1010/WebSite/About%20Us/FIELD%20BOUNDARY%20FLYER%20122123.pdf?ver=2024-01-03-212959-590).
+
 ### Spatial Properties
 
 | Property Name | Data Type    | Description |
@@ -103,9 +105,5 @@ timestamp of the actual execution.
 - `auto-imagery`: Automatically created from aerial or satellite imagery, e.g. using CV or ML techniques.
 - `unknown`: The default value. This often means it is defined by some other authority (see `category`) and is likely one of the other methods but there's no knowledge of which exactly.
 
----
-
-Parts of this document are based on the following documents:
-
-- [Locking in on Field Boundaries - An AgGateway Initiative](https://aggateway.org/Portals/1010/WebSite/About%20Us/FIELD%20BOUNDARY%20FLYER%20122123.pdf?ver=2024-01-03-212959-590)
-- [ADAPT standard](https://adaptstandard.org/) and related documents
+The determination methods are based on the definitions of the [AgGateway initiative - WG17](https://aggateway.org/).
+The specific values have [not been published yet](https://github.com/fiboa/specification/issues/31).
