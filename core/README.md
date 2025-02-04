@@ -25,13 +25,16 @@ This allows to define a clear mapping between the core specification and its enc
 
 ## General Properties
 
-| Property Name    | Data Type      | Description |
-| ---------------- | -------------- | ----------- |
-| fiboa_version    | string         | **REQUIRED.** Version number of the fiboa specification the collection implements. |
-| fiboa_extensions | array\<string> | A list of URIs to extensions the collection implements. |
-| id               | string         | **REQUIRED.** A unique identifier for the field. It must be unique per collection, i.e. `collection` and `id` form a unique identifier. |
-| collection       | string         | The identifier of the parent collection. |
-| category         | array\<string> | A set of categories the field boundary belongs to. |
+| Property Name | Data Type      | Description |
+| ------------- | -------------- | ----------- |
+| fiboa_schemas | array\<string> | **REQUIRED.** A list of URLs to schemas the collection implements. |
+| id            | string         | **REQUIRED.** A unique identifier for the field. It must be unique per collection, i.e. `collection` and `id` form a unique identifier. |
+| collection    | string         | The identifier of the parent collection. |
+| category      | array\<string> | A set of categories the field boundary belongs to. |
+
+**fiboa_schemas:** The schemas the collection implements. Must be URLs to the schema YAML files.
+
+The schema for this specification (see above) is required to be provided.
 
 **collection:** The collection identifier is usually only needed for merged datasets.
 

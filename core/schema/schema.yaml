@@ -1,18 +1,17 @@
 $schema: https://fiboa.github.io/schema/v0.1.0/schema.json
 required:
-  - fiboa_version
+  - fiboa_schemas
   - id
   - geometry
 properties:
-  fiboa_version:
-    type: string
-    enum:
-      - 0.2.0
-  fiboa_extensions:
+  fiboa_schemas:
     type: array
     items:
       type: string
       format: uri
+    contains:
+      enum:
+        - https://fiboa.github.io/specification/v0.2.0/schema.yaml
   id:
     type: string
     minLength: 1
