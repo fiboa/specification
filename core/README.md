@@ -14,14 +14,14 @@ Collection and Feature level.
 ## Schema
 
 The data types in the following document are defined in
-[fiboa Schema](https://github.com/fiboa/schema), v0.1.0.
+[fiboa Schema](https://github.com/fiboa/schema), v0.2.0.
 
 fiboa Schema defines a (limited) set of data types and a vocabulary to express
 additional constraints for these data types.
 This allows to define a clear mapping between the core specification and its encodings.
 
-- [Data types](https://github.com/fiboa/schema/blob/v0.1.0/datatypes.md)
-- [Vocabulary](https://github.com/fiboa/schema/blob/v0.1.0/README.md#vocabulary)
+- [Data types](https://github.com/fiboa/schema/blob/v0.2.0/datatypes.md)
+- [Vocabulary](https://github.com/fiboa/schema/blob/v0.2.0/README.md#vocabulary)
 
 ## General Properties
 

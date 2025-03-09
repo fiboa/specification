@@ -14,7 +14,7 @@ We aim to support any future version of GeoParquet, too.
 
 ## Collection
 
-The GeoParquet file must embed the collectio-level metadata
+The GeoParquet file must embed the collection-level metadata
 in the Parquet metadata in a property named `fiboa`.
 
 It is recommended to additionally provide the fiboa Collection as a separate JSON file, too.
