@@ -33,6 +33,15 @@ Any property that consists of the same value across all features can be de-dupli
 if more than two features are available for the collection.
 The specific location and behaviour of collection-level data is specified in the encoding-specific specifications.
 
+Example:
+
+You have two different field boundary datasets named `abc` (CC-0 licensed) and `xyz` (CC-BY-4.0 licensed).
+If you store the datasets separately, you can store the license in the collection-level data
+as the value for the property is the same for all features.
+Once you merged the two datasets, you must ensure that a unique identifier for the collection is provieded
+(here: `abc` and `xyz`) so that IDs are unique.
+Additionally, you have to add the license property on the feature-level as the licenses are now twofold.
+
 ## General Properties
 
 | Property Name | Data Type      | Description |
@@ -46,7 +55,8 @@ The specific location and behaviour of collection-level data is specified in the
 The schema for this specification (see above) is required to be provided.
 
 **collection:** The collection identifier is usually only needed for merged datasets and it is **required** in this case.
-A validatior can't check whether the `collection` property is required, the data providers must ensure this.
+A validatior can't check whether the `collection` property is required, the data providers or tooling must ensure that if data from two different sources are merged that a `collection` property with distinct values is provided.
+Otherwise, IDs may conflict or extension requirements might not be fulfilled and validation could fail.
 
 **category:** Choose any (unique) combination of the following values:
 
