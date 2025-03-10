@@ -1,9 +1,10 @@
 {
   "fiboa": {
-    "fiboa_extensions": [
+    "schemas": [
       "https://fiboa.github.io/specification/v0.2.0/schema.yaml",
       "https://fiboa.github.io/inspire-extension/v0.2.0/schema.yaml",
-      "https://fiboa.github.io/flik-extension/v0.1.0/schema.yaml"
+      "https://fiboa.github.io/flik-extension/v0.1.0/schema.yaml",
+      "https://fiboa.github.io/crop-extension/v0.1.0/schema.yaml"
     ],
     "collection": "de_nrw",
     "license": "dl-de/by-2-0",
@@ -18,8 +19,8 @@
         "inspire:id": "https://geodaten.nrw.de/id/inspire-lc-fb/landcoverunit/12324",
         "flik": "DENWLI0542130247",
         "determination_datetime": "2005-02-28T00:00:00Z",
-        "nutz_code": "A",
-        "nutz_txt": "Ackerland",
+        "crop:code": "A",
+        "crop:name": "Ackerland",
         "area": 1.631100058555603
       },
       "geometry": {
@@ -86,9 +87,9 @@
       "properties": {
         "inspire:id": "https://geodaten.nrw.de/id/inspire-lc-fb/landcoverunit/2713",
         "flik": "DENWLI0540210084",
-        "determination_datetime": "2005-02-28T00:00:00Z",
-        "nutz_code": "A",
-        "nutz_txt": "Ackerland",
+        "determination_datetime": "2005-02-22T00:00:00Z",
+        "crop:code": "W",
+        "crop:name": "Weide",
         "area": 1.8975000381469727
       },
       "geometry": {

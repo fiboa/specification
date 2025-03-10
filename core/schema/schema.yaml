@@ -10,6 +10,7 @@ properties:
       type: string
       format: uri
     contains:
+      type: string
       enum:
         - https://fiboa.github.io/specification/v0.2.0/schema.yaml
   id:

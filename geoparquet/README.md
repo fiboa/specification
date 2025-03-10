@@ -17,8 +17,6 @@ We aim to support any future version of GeoParquet, too.
 The GeoParquet file must embed the collection-level metadata
 in the Parquet metadata in a property named `fiboa`.
 
-It is recommended to additionally provide the fiboa Collection as a separate JSON file, too.
-
 ## Features
 
 Each [fiboa Feature](../core/README.md#features) corresponds to a row in a GeoParquet file.
@@ -31,3 +29,8 @@ i.e. the column can be missing from the GeoParquet file.
 
 The mapping between the Parquet data types and the fiboa data types, can be found in the
 [data type mapping](datatypes.md).
+
+## Best practices
+
+For data with a lot of repetition, brotli compression is recommended.
+This applies particularly for merged datasets that don't deduplicate properties to the collection-level.

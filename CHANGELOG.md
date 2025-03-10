@@ -11,11 +11,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Property `category`
 - Property `determination_details`
+- Information about the encoding of datatypes at the collection-level
 
 ### Changed
 
 - Switched from v0.1.0 to v0.2.0 of the schema language
 - Renamed `fiboa_extensions` to `schemas`
+- GeoJSON: Switched `contentEncoding` for data type `binary` from `binary` to `base64`
 
 ### Deprecated
 

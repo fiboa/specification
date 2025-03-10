@@ -14,10 +14,17 @@ The generic GeoJSON format is defined in
 
 ## FeatureCollection
 
-A FeatureCollection may have a top-level property named `fiboa`.
-If present, it contains all properties that are common across the features.
-In validation they must be copied to the `properties` in each Feature.
+A FeatureCollection may have a top-level property named `fiboa` to contain all collection-level data.
+If present, it contains all properties that are common across the features
+and the features shall not contain those properties.
+Validation must ensure that the collection-level properties are taken into account.
 All features in a FeatureCollection must be fiboa-compliant.
+
+The following properties can't be collection-level properties:
+
+- `id`
+- `geometry`
+- `bbox`
 
 ## Feature
 
@@ -42,7 +49,7 @@ The following properties are defined for a GeoJSON Feature (at the top-level of 
 
 ### `properties`
 
-Must include any property that is required by the fiboa core specification (currently `fiboa_version`).
+Must include any property that is required by the fiboa core specification.
 May include any additional property.
 All properties defined by the core specification (except for `id`, `geometry` and `bbox`) or extensions should be provided here.
 

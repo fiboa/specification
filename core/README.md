@@ -23,6 +23,16 @@ This allows to define a clear mapping between the core specification and its enc
 - [Data types](https://github.com/fiboa/schema/blob/v0.2.0/datatypes.md)
 - [Vocabulary](https://github.com/fiboa/schema/blob/v0.2.0/README.md#vocabulary)
 
+## Collections
+
+A Collection is a group of one or more features with a unique identifier (see property `collection`).
+
+Each collection must have a single set of applicable schemas.
+
+Any property that consists of the same value across all features can be de-duplicated to the collection-level
+if more than two features are available for the collection.
+The specific location and behaviour of collection-level data is specified in the encoding-specific specifications.
+
 ## General Properties
 
 | Property Name | Data Type      | Description |
@@ -33,10 +43,10 @@ This allows to define a clear mapping between the core specification and its enc
 | category      | array\<string> | A set of categories the field boundary belongs to. |
 
 **schemas:** The schemas the collection implements. Must be URLs to the schema YAML files.
-
 The schema for this specification (see above) is required to be provided.
 
-**collection:** The collection identifier is usually only needed for merged datasets.
+**collection:** The collection identifier is usually only needed for merged datasets and it is **required** in this case.
+A validatior can't check whether the `collection` property is required, the data providers must ensure this.
 
 **category:** Choose any (unique) combination of the following values:
 
