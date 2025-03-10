@@ -3,7 +3,7 @@ on:
   - push
   - pull_request
 jobs:
-  deploy:
+  docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v5
@@ -15,7 +15,30 @@ jobs:
           pip install pipenv
           pipenv install
       - run: pipenv run test-docs
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '>=3.9'
+      - uses: actions/checkout@v4
+      - name: Install pipenv
+        run: |
+          pip install pipenv
+          pipenv install
       - run: pipenv run test-schema
+  examples:
+    runs-on: ubuntu-latest
+    needs: schema
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '>=3.9'
+      - uses: actions/checkout@v4
+      - name: Install pipenv
+        run: |
+          pip install pipenv
+          pipenv install
       - run: pipenv run test-geojson-features
       - run: pipenv run test-geojson-collection
       - run: pipenv run test-geoparquet

@@ -40,6 +40,9 @@ We use pipenv to execute the tests.
 Start with the following command in the folder where this README is located:
 `pip install pipenv --user`
 
+Install the dependencies for the test:
+`pipenv install`
+
 Finally, you can run the tests as follows:
 
 - To check the markdown run: `pipenv run test-docs`
