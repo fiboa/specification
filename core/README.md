@@ -1,39 +1,66 @@
-# Core Specification
+# Core Specification <!-- omit in toc -->
 
-This specification describes the core data and metadata properties for both at the
-Collection and Feature level.
+This specification describes the core data and metadata properties that describe a fiboa Feature.
+The specification doesn't distinguish between collection-level and feature-level properties,
+common definitions are shared across these levels.
 
 - A Collection refers to a group of one or more features.
 - A Feature is a single field geometry with additional properties.
 
-> [!NOTE]
-> The Core Specification is still work in progress. Feedback is welcome!
-
 - **Schema:** <https://fiboa.github.io/specification/v0.2.0/schema.yaml>
 
-## Schema
+## Table of Contents <!-- omit in toc -->
 
-The data types in the following document are defined in
-[fiboa Schema](https://github.com/fiboa/schema), v0.2.0.
+- [General Properties](#general-properties)
+  - [schemas](#schemas)
+  - [id](#id)
+  - [collection](#collection)
+  - [category](#category)
+- [Spatial Properties](#spatial-properties)
+  - [area / perimeter](#area--perimeter)
+- [Determination Properties](#determination-properties)
+  - [determination\_datetime](#determination_datetime)
+  - [determination\_method](#determination_method)
+- [Schema Language](#schema-language)
 
-fiboa Schema defines a (limited) set of data types and a vocabulary to express
-additional constraints for these data types.
-This allows to define a clear mapping between the core specification and its encodings.
+## General Properties
 
-- [Data types](https://github.com/fiboa/schema/blob/v0.2.0/datatypes.md)
-- [Vocabulary](https://github.com/fiboa/schema/blob/v0.2.0/README.md#vocabulary)
+| Property Name | Data Type      | Description |
+| ------------- | -------------- | ----------- |
+| schemas       | array\<string> | **REQUIRED.** A list of schemas the collection implements. |
+| id            | string         | **REQUIRED.** An identifier for the field. |
+| collection    | string         | The identifier of the parent collection. |
+| category      | array\<string> | A set of categories the field boundary belongs to. |
 
-## Collections
+### schemas
 
-A Collection is a group of one or more features with a unique identifier (see property `collection`).
+The schemas the collection implements.
+Each schema must be a valid HTTP(S) URLs to an existing YAML files compliant to fiboa Schema.
+The schema for this specification (see above) is required to be provided.
 
-Each collection must have a single set of applicable schemas.
+Each `collection` must have a single set of applicable schemas.
 
-Any property that consists of the same value across all features can be de-duplicated to the collection-level
-if more than two features are available for the collection.
+The schema URI listed above is required to be present in the `schemas` array.
+
+### id
+
+It must be unique per collection, i.e. `collection` and `id` form a unique identifier.
+
+### collection
+
+A collection is a group of one or more features with a unique identifier, stored in the `collection` property.
+
+The collection identifier is usually only needed for merged datasets and it is **required** in this case.
+Implementations may create collection identifiers if datasets that don't provide a collection identifer are getting merged.
+A validatior can't know whether the `collection` property is required, the data providers or tooling must handle this,
+i.e. if data from two different sources is merged, a `collection` property with distinct values must be provided.
+This ensures unique IDs through the combination of the properties `id` and `collection`.
+
+Encodings may support to store properties that consists of the same value across all features at the collection-level.
+This de-duplicates data for more efficient resource usage, but only applies if more than two features are available for the collection.
 The specific location and behaviour of collection-level data is specified in the encoding-specific specifications.
 
-Example:
+**Example:**
 
 You have two different field boundary datasets named `abc` (CC-0 licensed) and `xyz` (CC-BY-4.0 licensed).
 If you store the datasets separately, you can store the license in the collection-level data
@@ -42,23 +69,9 @@ Once you merged the two datasets, you must ensure that a unique identifier for t
 (here: `abc` and `xyz`) so that IDs are unique.
 Additionally, you have to add the license property on the feature-level as the licenses are now twofold.
 
-## General Properties
+### category
 
-| Property Name | Data Type      | Description |
-| ------------- | -------------- | ----------- |
-| schemas       | array\<string> | **REQUIRED.** A list of URLs to schemas the collection implements. |
-| id            | string         | **REQUIRED.** A unique identifier for the field. It must be unique per collection, i.e. `collection` and `id` form a unique identifier. |
-| collection    | string         | The identifier of the parent collection. |
-| category      | array\<string> | A set of categories the field boundary belongs to. |
-
-**schemas:** The schemas the collection implements. Must be URLs to the schema YAML files.
-The schema for this specification (see above) is required to be provided.
-
-**collection:** The collection identifier is usually only needed for merged datasets and it is **required** in this case.
-A validatior can't check whether the `collection` property is required, the data providers or tooling must ensure that if data from two different sources are merged that a `collection` property with distinct values is provided.
-Otherwise, IDs may conflict or extension requirements might not be fulfilled and validation could fail.
-
-**category:** Choose any (unique) combination of the following values:
+Choose any (unique) combination of the following values:
 
 - `conceptual`: This boundary represents how the grower thinks of a field, and what they would share with service
   providers to allocate information at the highest level of the field concept within their operation.
@@ -81,21 +94,26 @@ The categories are based on the [definitions of the AgGateway initiative](https:
 | area          | float        | Area of the field, in hectares. Must be > 0 and <= 100,000. |
 | perimeter     | float        | Perimeter of the field, in meters. Must be > 0 and <= 125,000. |
 
-**area/perimeter:** These are derived attributes from the geometry itself,
+### area / perimeter
+
+These are derived attributes from the geometry itself,
 and must match the geometry's area/perimeter. If they do not match then the
 geometry should be considered canonical.
 Validators may flag the value as invalid if it exceeds a certain threshold.
 
 ## Determination Properties
 
-| Property Name          | Data Type | Description                                                  |
-| ---------------------- | --------- | ------------------------------------------------------------ |
-| determination_method   | string    | The boundary creation method, one of the values below.       |
-| determination_datetime | datetime  | The last timestamp at which the field did exist and was observed, in UTC. |
+| Property Name          | Data Type | Description |
+| ---------------------- | --------- | ----------- |
+| determination_method   | string    | The boundary creation method, one of the values below. |
+| determination_datetime | datetime  | The last timestamp at which the field did exist and was observed. |
 | determination_details  | string    | Further details about the determination, especially the methodology. |
 
-**determination_datetime**: In case the source of the information is an
-interval or a set of timestamps, use the end.
+### determination_datetime
+
+The last timestamp at which the field did exist and was observed, provided in the UTC timezone.
+
+In case the source of the information is an interval or a set of timestamps, use the end.
 For example, for ML you'd use the timestamp of the last image and not the
 timestamp of the actual execution.
 
@@ -103,7 +121,9 @@ timestamp of the actual execution.
 > We define more temporal properties in the
 > [timestamps extension](https://github.com/fiboa/timestamps).
 
-**determination_method**: Must be one of the following values:
+### determination_method
+
+The determination method must be one of the following values:
 
 - `manual`: Hand created from imagery, e.g. using a tool to point and click on a map.
 - `surveyed`: Determined through a professional land survey measuring the actual distances and angles on the ground.
@@ -114,3 +134,15 @@ timestamp of the actual execution.
 
 The determination methods are based on the definitions of the [AgGateway initiative - WG17](https://aggateway.org/).
 The specific values have [not been published yet](https://github.com/fiboa/specification/issues/31).
+
+## Schema Language
+
+The schema language used for fiboa is [fiboa Schema](https://github.com/fiboa/schema), version 0.2.0.
+
+The data types in the tables above are defined in the document
+[Data Types](https://github.com/fiboa/schema/blob/v0.2.0/datatypes.md).
+
+fiboa Schema defines a (limited) set of data types and a
+[vocabulary](https://github.com/fiboa/schema/blob/v0.2.0/README.md#vocabulary)
+to express additional constraints for these data types.
+This allows to define a clear mapping between the core specification and its encodings.

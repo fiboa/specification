@@ -9,6 +9,7 @@ properties:
     items:
       type: string
       format: uri
+      pattern: ^https?://
     contains:
       type: string
       enum:

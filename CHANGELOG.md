@@ -17,16 +17,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Switched from v0.1.0 to v0.2.0 of the schema language
 - Renamed `fiboa_extensions` to `schemas`
+- Schemas must be valid HTTP(S) URLs
 - GeoJSON: Switched `contentEncoding` for data type `binary` from `binary` to `base64`
-
-### Deprecated
-
-- ...
+- GeoJSON FeatureCollection: Collection-level data is provided at the top-level, not in a `fiboa` property
 
 ### Removed
 
 - Value `administrative` was removed from `determination_method` in favor of the new property `category`
 - `fiboa_version` in favor of adding the schema URL of the specification to `schemas`.
+- GeoJSON Feature: `links` property
 
 ### Fixed
 
