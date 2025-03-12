@@ -19,7 +19,7 @@ It also shows the mapping to the GeoParquet data types.
 | binary                                              | BYTE_ARRAY                                                   | as string, base64-encoded       |
 | string<br />charset: UTF-8                          | STRING (BYTE_ARRAY)                                          | yes                             |
 | array                                               | LIST                                                         | yes                             |
-| object<br />keys: string<br />values: any           | STRUCT / MAP                                                 | yes                             |
+| object<br />keys: string<br />values: any           | STRUCT or MAP (see below)                                    | yes                             |
 | date                                                | DATE (INT32)                                                 | as string, compliant to ISO8601 |
 | date-time<br />with milliseconds<br />timezone: UTC | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) | as string, compliant to ISO8601 |
 | geometry                                            | BYTE_ARRAY<br />encoded as WKB                               | no                              |
@@ -28,6 +28,14 @@ It also shows the mapping to the GeoParquet data types.
 
 The integer data types and the data type string can also be mapped to the ENUM data type in Parquet
 if a pre-defined set of values is available.
+
+## Struct vs Map
+
+Parquet has both Map and Struct types. The struct type is similar to a named dictionary while the map type is similar to a list of ordered (key, value) pairs. The main difference is that you need to know up-front the keys for the struct type, while you don't for the map type.
+
+Due to this difference, the **Struct** type can only be used if `additionalProperties` is `false` (the default value) and only `properties` is provided to clearly specify the exact names of the properties.
+
+Any variability in the keys through the use of `additionalProperties` (except for the default `false`) or `patternProperties` requires the use of the **Map** data type. Please note that the order of the Map type is guaranteed to be preserved.
 
 ## Unsupported Data Types
 
