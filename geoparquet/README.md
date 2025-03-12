@@ -16,7 +16,7 @@ i.e. the column can be missing from the GeoParquet file.
 
 Properties can also be stored at the [collection-level](../core/README.md#collection) if all values in a column have the same value.
 This de-duplicates data for more efficient resource usage and simplifies the sturcture of the Parquet file.
-The GeoParquet file must embed the properties in the Parquet metadata in a property named `fiboa`.
+The GeoParquet file must embed the properties in the Parquet metadata in a property named `collection`.
 The metadata must be JSON-encoded.
 
 The mapping between the Parquet data types and the fiboa data types, can be found in the
