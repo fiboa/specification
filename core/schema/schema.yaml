@@ -1,4 +1,4 @@
-$schema: https://fiboa.github.io/schema/v0.2.0/schema.json
+$schema: https://fiboa.github.io/schema/v0.3.0/schema.json
 required:
   - schemas
   - id
@@ -13,7 +13,7 @@ properties:
     contains:
       type: string
       enum:
-        - https://fiboa.github.io/specification/v0.2.0/schema.yaml
+        - https://fiboa.github.io/specification/v0.3.0/schema.yaml
   id:
     type: string
     minLength: 1

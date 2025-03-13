@@ -7,7 +7,7 @@ This repository contains the core specification for fiboa, including the data sc
 For more context, information on the ecosystem, and points of contact see the
 [fiboa github organization](https://github.com/fiboa/).
 
-- Version: **0.2.0**
+- Version: **0.3.0**
 
 > [!IMPORTANT]  
 > The fiboa specification is a work in progress.

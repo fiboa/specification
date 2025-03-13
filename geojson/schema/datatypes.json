@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fiboa.github.io/specification/v0.2.0/geojson/datatypes.json",
+  "$id": "https://fiboa.github.io/specification/v0.3.0/geojson/datatypes.json",
   "$defs": {
     "boolean": {
       "type": "boolean"

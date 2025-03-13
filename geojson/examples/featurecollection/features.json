@@ -1,6 +1,6 @@
 {
   "schemas": [
-    "https://fiboa.github.io/specification/v0.2.0/schema.yaml",
+    "https://fiboa.github.io/specification/v0.3.0/schema.yaml",
     "https://fiboa.github.io/inspire-extension/v0.2.0/schema.yaml",
     "https://fiboa.github.io/flik-extension/v0.1.0/schema.yaml",
     "https://fiboa.github.io/crop-extension/v0.1.0/schema.yaml"

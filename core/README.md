@@ -7,7 +7,7 @@ common definitions are shared across these levels.
 - A Collection refers to a group of one or more features.
 - A Feature is a single field geometry with additional properties.
 
-- **Schema:** <https://fiboa.github.io/specification/v0.2.0/schema.yaml>
+- **Schema:** <https://fiboa.github.io/specification/v0.3.0/schema.yaml>
 
 ## Table of Contents <!-- omit in toc -->
 
