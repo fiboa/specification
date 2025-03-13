@@ -24,10 +24,15 @@ It also shows the mapping to the GeoParquet data types.
 | date-time<br />with milliseconds<br />timezone: UTC | TimestampType (INT64)<br />isAdjustedToUTC: true<br />unit:  MILLIS<br />(deprecated: TIMESTAMP_MILLIS) | as string, compliant to ISO8601 |
 | geometry                                            | BYTE_ARRAY<br />encoded as WKB                               | no                              |
 | bounding-box<br />x and y only, no z                | STRUCT(xmin FLOAT, ymin FLOAT, xmax FLOAT, ymax FLOAT)       | no                              |
-| *if a property is not required*                     | [Nullity](https://parquet.apache.org/docs/file-format/nulls/) | yes                             |
 
 The integer data types and the data type string can also be mapped to the ENUM data type in Parquet
 if a pre-defined set of values is available.
+
+## Missing values
+
+For optional properties, values might be missing.
+This is expressed by providing the values `null`
+(see data type [Nullity](https://parquet.apache.org/docs/file-format/nulls/)).
 
 ## Struct vs Map
 

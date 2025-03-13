@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Various minor clarifications and editorial enhancements
 - Added descriptions to the allowed values for `determination_method`
+- Clarified handling of missing values
 - GeoJSON: Clarify the encoding of the top-level properties (including `links` and `fiboa`)
 - GeoJSON: Clarify the use of RFC 7946
 - GeoParquet: Properties that are optional can be omitted if all values are null values

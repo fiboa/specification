@@ -12,7 +12,7 @@ It also shows the mapping to the GeoJSON data types.
 | uint16                                              | integer<br />minimum: 0<br />maximum: 65535                  | yes              |
 | int32                                               | integer<br />minimum: -2147483648<br />maximum: 2147483647   | yes              |
 | uint32                                              | integer<br />minimum: 0<br />maximum: 4294967295             | yes              |
-| int64                                               | integer<br />minimum: -9223372036854775808<br />maximum: 9223372036854775807 | yes              |
+| int64                                               | integer<br />minimum: -9223372036854775808<br />maximum: 9223372036854775807 | yes |
 | uint64                                              | integer<br />minimum: 0<br />maximum: 18446744073709551615   | yes              |
 | float<br />IEEE 32-bit                              | number<br />minimum: ?<br />maximum: ?                       | yes              |
 | double<br />IEEE 64-bit                             | number<br />minimum: ?<br />maximum: ?                       | yes              |
@@ -22,9 +22,14 @@ It also shows the mapping to the GeoJSON data types.
 | object<br />keys: string<br />values: any           | object<br />additionalProperties: false                      | yes              |
 | date                                                | string<br />format: date                                     | yes              |
 | date-time<br />with milliseconds<br />timezone: UTC | string<br />format: date-time<br />pattern: Z$               | yes              |
-| geometry                                            | [object with schema](https://geojson.org/schema/Geometry.json) | no               |
+| geometry                                            | [object with schema](https://geojson.org/schema/Geometry.json) | no             |
 | bounding-box<br />x and y only, no z                | array<br />minItems: 4<br />maxItems: 4<br />items: number   | no               |
-| *if a property is not required*                     | omit the JSON property (`null` is not allowed)               | yes              |
+
+## Missing values
+
+For optional properties, values might be missing.
+This is expressed by omitting the JSON property.
+The value `null` is not allowed.
 
 ## Potential issues in conversion
 
