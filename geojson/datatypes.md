@@ -24,7 +24,7 @@ It also shows the mapping to the GeoJSON data types.
 | date-time<br />with milliseconds<br />timezone: UTC | string<br />format: date-time<br />pattern: Z$               | yes              |
 | geometry                                            | [object with schema](https://geojson.org/schema/Geometry.json) | no               |
 | bounding-box<br />x and y only, no z                | array<br />minItems: 4<br />maxItems: 4<br />items: number   | no               |
-| *if a property is not required*                     | null                                                         | yes              |
+| *if a property is not required*                     | omit the JSON property (`null` is not allowed)               | yes              |
 
 ## Potential issues in conversion
 

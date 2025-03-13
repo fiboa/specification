@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Schemas must be valid HTTP(S) URLs
 - GeoParquet: Renamed Parquet metadata key from `fiboa` to `collection`
 - GeoJSON: Switched `contentEncoding` for data type `binary` from `binary` to `base64`
+- GeoJSON data types: `null` is not allowed any longer, instead omit the property
 - GeoJSON FeatureCollection: Collection-level data is provided at the top-level, not in a `fiboa` property
 
 ### Removed
