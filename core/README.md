@@ -25,12 +25,12 @@ common definitions are shared across these levels.
 
 ## General Properties
 
-| Property Name | Data Type      | Description |
-| ------------- | -------------- | ----------- |
-| schemas       | array\<string> | **REQUIRED.** A list of schemas the collection implements. |
-| id            | string         | **REQUIRED.** An identifier for the field. |
-| collection    | string         | The identifier of the parent collection. |
-| category      | array\<string> | A set of categories the field boundary belongs to. |
+| Property Name | Data Type                       | Description |
+| ------------- | ------------------------------- | ----------- |
+| schemas       | object\<string, array\<string>> | **REQUIRED.** A list of schemas the collection implements. |
+| id            | string                          | **REQUIRED.** An identifier for the field. |
+| collection    | string                          | **REQUIRED.** The identifier of the collection. |
+| category      | array\<string>                  | A set of categories the field boundary belongs to. |
 
 ### schemas
 
@@ -39,8 +39,25 @@ Each schema must be a valid HTTP(S) URLs to an existing YAML files compliant to 
 The schema for this specification (see above) is required to be provided.
 
 Each `collection` must have a single set of applicable schemas.
+The key of the dictionary must be equal to the value provided for the `collection` property.
 
-The schema URI listed above is required to be present in the `schemas` array.
+The schema URI for fiboa that is listed above is required to be present.
+
+**Example for `schemas`:**
+
+This describes two collections `abc` and `xyz`.
+
+```json
+{
+  "abc": [
+    "https://fiboa.github.io/specification/v0.3.0/schema.yaml"
+  ],
+  "xyz": [
+    "https://fiboa.github.io/specification/v0.3.0/schema.yaml",
+    "https://fiboa.github.io/crop-extension/v0.1.0/schema.yaml",
+  ]
+}
+```
 
 ### id
 
@@ -49,12 +66,6 @@ It must be unique per collection, i.e. `collection` and `id` form a unique ident
 ### collection
 
 A collection is a group of one or more features with a unique identifier, stored in the `collection` property.
-
-The collection identifier is usually only needed for merged datasets and it is **required** in this case.
-Implementations may create collection identifiers if datasets that don't provide a collection identifer are getting merged.
-A validatior can't know whether the `collection` property is required, the data providers or tooling must handle this,
-i.e. if data from two different sources is merged, a `collection` property with distinct values must be provided.
-This ensures unique IDs through the combination of the properties `id` and `collection`.
 
 Encodings may support to store properties that consists of the same value across all features at the collection-level.
 This de-duplicates data for more efficient resource usage, but only applies if more than two features are available for the collection.

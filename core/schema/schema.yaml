@@ -2,7 +2,13 @@ $schema: https://fiboa.github.io/schema/v0.3.0/schema.json
 required:
   - schemas
   - id
+  - collection
   - geometry
+collection:
+  schemas: true
+  id: false
+  geometry: false
+  bbox: false
 properties:
   schemas:
     type: array

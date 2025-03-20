@@ -2,10 +2,13 @@
   "id": "12324",
   "type": "Feature",
   "properties": {
-    "schemas": [
-      "https://fiboa.github.io/specification/v0.3.0/schema.yaml",
-      "https://fiboa.github.io/flik-extension/v0.1.0/schema.yaml"
-    ],
+    "schemas": {
+      "example": [
+        "https://fiboa.github.io/specification/v0.3.0/schema.yaml",
+        "https://fiboa.github.io/flik-extension/v0.1.0/schema.yaml"
+      ]
+    },
+    "collection": "example",
     "flik": "DENWLI0542130247",
     "determination_datetime": "2005-02-28T00:00:00Z",
     "nutz_code": "A",
