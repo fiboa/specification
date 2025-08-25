@@ -4,60 +4,43 @@ This specification describes the core data and metadata properties that describe
 The specification doesn't distinguish between collection-level and feature-level properties,
 common definitions are shared across these levels.
 
-- A Collection refers to a group of one or more features.
-- A Feature is a single field geometry with additional properties.
-
-- **Schema:** <https://fiboa.github.io/specification/v0.3.0/schema.yaml>
+- **Schema:** <https://fiboa.org/specification/v0.3.0/schema.yaml>
 
 ## Table of Contents <!-- omit in toc -->
 
-- [General Properties](#general-properties)
+- [General](#general)
   - [schemas](#schemas)
   - [id](#id)
   - [collection](#collection)
+- [Categorization](#categorization)
   - [category](#category)
-- [Spatial Properties](#spatial-properties)
-  - [area / perimeter](#area--perimeter)
-- [Determination Properties](#determination-properties)
-  - [determination\_datetime](#determination_datetime)
-  - [determination\_method](#determination_method)
-- [Schema Language](#schema-language)
+- [Geometry Metrics](#geometry-metrics)
+  - [metrics:area / metrics:perimeter](#metricsarea--metricsperimeter)
+- [Determination](#determination)
+  - [determination:datetime](#determinationdatetime)
+  - [determination:method](#determinationmethod)
 
-## General Properties
+## General
+
+The following properties are inherited from the
+[Vecorel specification v0.1.0](https://github.com/vecorel/specification/blob/v0.1.0/core/README.md):
 
 | Property Name | Data Type                       | Description |
 | ------------- | ------------------------------- | ----------- |
 | schemas       | object\<string, array\<string>> | **REQUIRED.** A list of schemas the collection implements. |
 | id            | string                          | **REQUIRED.** An identifier for the field. |
 | collection    | string                          | **REQUIRED.** The identifier of the collection. |
-| category      | array\<string>                  | A set of categories the field boundary belongs to. |
+| geometry      | geometry                        | **REQUIRED.** A geometry that reflects the footprint of the field, usually a Polygon. Default CRS is WGS84. |
+| bbox          | bounding-box                    | The bounding box of the field. |
+
+For details about each of these fields, please see the Vecorel specification.
+Below you can find specifics related to field boundaries.
 
 ### schemas
 
 The schemas the collection implements.
-Each schema must be a valid HTTP(S) URLs to an existing YAML files compliant to fiboa Schema.
+Each schema must be a valid HTTP(S) URLs to an existing YAML files compliant to the [Vecorel SDL v0.2.0](https://github.com/vecorel/sdl/tree/v0.2.0).
 The schema for this specification (see above) is required to be provided.
-
-Each `collection` must have a single set of applicable schemas.
-The key of the dictionary must be equal to the value provided for the `collection` property.
-
-The schema URI for fiboa that is listed above is required to be present.
-
-**Example for `schemas`:**
-
-This describes two collections `abc` and `xyz`.
-
-```json
-{
-  "abc": [
-    "https://fiboa.github.io/specification/v0.3.0/schema.yaml"
-  ],
-  "xyz": [
-    "https://fiboa.github.io/specification/v0.3.0/schema.yaml",
-    "https://fiboa.github.io/crop-extension/v0.1.0/schema.yaml",
-  ]
-}
-```
 
 ### id
 
@@ -67,10 +50,6 @@ It must be unique per collection, i.e. `collection` and `id` form a unique ident
 
 A collection is a group of one or more features with a unique identifier, stored in the `collection` property.
 
-Encodings may support to store properties that consists of the same value across all features at the collection-level.
-This de-duplicates data for more efficient resource usage, but only applies if more than two features are available for the collection.
-The specific location and behaviour of collection-level data is specified in the encoding-specific specifications.
-
 **Example:**
 
 You have two different field boundary datasets named `abc` (CC-0 licensed) and `xyz` (CC-BY-4.0 licensed).
@@ -79,6 +58,12 @@ as the value for the property is the same for all features.
 Once you merged the two datasets, you must ensure that a unique identifier for the collection is provieded
 (here: `abc` and `xyz`) so that IDs are unique.
 Additionally, you have to add the license property on the feature-level as the licenses are now twofold.
+
+## Categorization
+
+| Property Name | Data Type      | Description |
+| ------------- | -------------- | ----------- |
+| category      | array\<string> | A set of categories the field boundary belongs to. |
 
 ### category
 
@@ -96,31 +81,34 @@ Choose any (unique) combination of the following values:
 
 The categories are based on the [definitions of the AgGateway initiative](https://aggateway.org/Portals/1010/WebSite/About%20Us/FIELD%20BOUNDARY%20FLYER%20122123.pdf?ver=2024-01-03-212959-590).
 
-## Spatial Properties
+## Geometry Metrics
 
-| Property Name | Data Type    | Description |
-| ------------- | ------------ | ----------- |
-| geometry      | geometry     | **REQUIRED.** A geometry that reflects the footprint of the field, usually a Polygon. Default CRS is WGS84. |
-| bbox          | bounding-box | The bounding box of the field. |
-| area          | float        | Area of the field, in hectares. Must be > 0 and <= 100,000. |
-| perimeter     | float        | Perimeter of the field, in meters. Must be > 0 and <= 125,000. |
+The following properties originate from the Vecorel
+[Geometry Metrics extension v0.1.0](https://github.com/vecorel/geometry-metrics-extension).
 
-### area / perimeter
+We recommend to provide the following properties:
+
+| Property Name     | Data Type | Description |
+| ----------------- | --------- | ----------- |
+| metrics:area      | float     | Area of the field, in square meters (m²). Must be > 0 and <= 1,000,000,000. |
+| metrics:perimeter | float     | Perimeter of the field, in meters (m). Must be > 0 and <= 125,000. |
+
+### metrics:area / metrics:perimeter
 
 These are derived attributes from the geometry itself,
 and must match the geometry's area/perimeter. If they do not match then the
 geometry should be considered canonical.
 Validators may flag the value as invalid if it exceeds a certain threshold.
 
-## Determination Properties
+## Determination
 
 | Property Name          | Data Type | Description |
 | ---------------------- | --------- | ----------- |
-| determination_method   | string    | The boundary creation method, one of the values below. |
-| determination_datetime | datetime  | The last timestamp at which the field did exist and was observed. |
-| determination_details  | string    | Further details about the determination, especially the methodology. |
+| determination:method   | string    | The boundary creation method, one of the values below. |
+| determination:datetime | datetime  | The last timestamp at which the field did exist and was observed. |
+| determination:details  | string    | Further details about the determination, especially the methodology. |
 
-### determination_datetime
+### determination:datetime
 
 The last timestamp at which the field did exist and was observed, provided in the UTC timezone.
 
@@ -132,7 +120,7 @@ timestamp of the actual execution.
 > We define more temporal properties in the
 > [timestamps extension](https://github.com/fiboa/timestamps).
 
-### determination_method
+### determination:method
 
 The determination method must be one of the following values:
 
@@ -145,15 +133,3 @@ The determination method must be one of the following values:
 
 The determination methods are based on the definitions of the [AgGateway initiative - WG17](https://aggateway.org/).
 The specific values have [not been published yet](https://github.com/fiboa/specification/issues/31).
-
-## Schema Language
-
-The schema language used for fiboa is [fiboa Schema](https://github.com/fiboa/schema), version 0.2.0.
-
-The data types in the tables above are defined in the document
-[Data Types](https://github.com/fiboa/schema/blob/v0.2.0/datatypes.md).
-
-fiboa Schema defines a (limited) set of data types and a
-[vocabulary](https://github.com/fiboa/schema/blob/v0.2.0/README.md#vocabulary)
-to express additional constraints for these data types.
-This allows to define a clear mapping between the core specification and its encodings.

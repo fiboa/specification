@@ -1,0 +1,161 @@
+{
+  "type": "FeatureCollection",
+  "schemas": {
+    "de_nrw": [
+      "https://vecorel.org/specification/v0.1.0/schema.yaml",
+      "https://fiboa.org/specification/v0.3.0/schema.yaml",
+      "https://vecorel.org/administrative-division-extension/v0.1.0/schema.yaml",
+      "https://fiboa.org/flik-extension/v0.2.0/schema.yaml",
+      "https://fiboa.org/crop-extension/v0.2.0/schema.yaml"
+    ]
+  },
+  "admin:country_code": "DE",
+  "features": [
+    {
+      "id": "12324",
+      "type": "Feature",
+      "properties": {
+        "collection": "de_nrw",
+        "flik": "DENWLI0542130247",
+        "determination:datetime": "2005-02-28T00:00:00Z",
+        "crop:code_list": "https://fiboa.example/code_list.csv",
+        "crop:code": "A",
+        "crop:name": "Ackerland",
+        "metrics:area": 16311.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.8752433,
+              51.7469574
+            ],
+            [
+              7.8754156,
+              51.7486557
+            ],
+            [
+              7.8755951,
+              51.7486575
+            ],
+            [
+              7.8757271,
+              51.7486476
+            ],
+            [
+              7.8758657,
+              51.7486117
+            ],
+            [
+              7.8761609,
+              51.7485365
+            ],
+            [
+              7.8762749,
+              51.7485265
+            ],
+            [
+              7.8766462,
+              51.7485226
+            ],
+            [
+              7.8766691,
+              51.7475958
+            ],
+            [
+              7.8766832,
+              51.7470291
+            ],
+            [
+              7.8752433,
+              51.7469574
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2713",
+      "type": "Feature",
+      "properties": {
+        "collection": "de_nrw",
+        "flik": "DENWLI0540210084",
+        "determination:datetime": "2005-02-28T00:00:00Z",
+        "crop:code_list": "https://fiboa.example/code_list.csv",
+        "crop:code": "A",
+        "crop:name": "Ackerland",
+        "metrics:area": 18975.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.2790722,
+              51.9255088
+            ],
+            [
+              9.2798481,
+              51.9258291
+            ],
+            [
+              9.2801730,
+              51.9259630
+            ],
+            [
+              9.2805999,
+              51.9261403
+            ],
+            [
+              9.2806601,
+              51.9260287
+            ],
+            [
+              9.2808860,
+              51.9256102
+            ],
+            [
+              9.2813352,
+              51.9247781
+            ],
+            [
+              9.2813057,
+              51.9247258
+            ],
+            [
+              9.2809170,
+              51.9245829
+            ],
+            [
+              9.2799035,
+              51.9242133
+            ],
+            [
+              9.2798176,
+              51.9242331
+            ],
+            [
+              9.2793983,
+              51.9250101
+            ],
+            [
+              9.2792413,
+              51.9253010
+            ],
+            [
+              9.2790722,
+              51.9255088
+            ]
+          ]
+        ]
+      },
+      "bbox": [
+        9.2790722,
+        51.9242133,
+        9.2813352,
+        51.9261403
+      ]
+    }
+  ]
+}

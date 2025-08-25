@@ -10,35 +10,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Property `category`
-- Property `determination_details`
-- Information about the encoding of datatypes at the collection-level
+- Property `determination:details`
 
 ### Changed
 
-- Switched from v0.1.0 to v0.2.0 of the schema language
-- Renamed `fiboa_extensions` to `schemas`
-- Schemas must be valid HTTP(S) URLs
-- GeoParquet: Renamed Parquet metadata key from `fiboa` to `collection`
-- GeoJSON: Switched `contentEncoding` for data type `binary` from `binary` to `base64`
-- GeoJSON data types: `null` is not allowed any longer, instead omit the property
-- GeoJSON FeatureCollection: Collection-level data is provided at the top-level, not in a `fiboa` property
+- fiboa is an extension to the Vecorel specification now
+- Renamed `determination_method` to `determination:method`
+- Renamed `determination_datetime` to `determination:datetime`
 
 ### Removed
 
-- Value `administrative` was removed from `determination_method` in favor of the new property `category`
+- Value `administrative` was removed from `determination:method` in favor of the new property `category`
 - `fiboa_version` in favor of adding the schema URL of the specification to `schemas`.
-- GeoJSON Feature: `links` property
 
 ### Fixed
 
 - Various minor clarifications and editorial enhancements
-- Added descriptions to the allowed values for `determination_method`
-- Clarified handling of missing values
-- GeoJSON: Clarify the encoding of the top-level properties (including `links` and `fiboa`)
-- GeoJSON: Clarify the use of RFC 7946
-- GeoParquet: Properties that are optional can be omitted if all values are null values
-- GeoParquet: Added encoding for bounding boxes and objects
-- GeoParquet: Clarified the use of Map and Struct data types
+- Added descriptions to the allowed values for `determination:method`
 
 ## [v0.2.0] - 2024-04-10
 

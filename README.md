@@ -22,17 +22,18 @@ The core data schema of fiboa is quite simple: it’s a set of definitions for a
 The number of attributes in the core is quite small by design.
 The idea is that most of the ‘interesting’ data about the field will be located in extensions.
 
-The specification in this repository consists of three parts:
+The specification in this repository consists of just one fudamental part:
 
-- [Core Specification](core/README.md)
-  (file format agnostic definition for data and metadata)
-- [GeoJSON Encoding](geojson/README.md)
-- [GeoParquet Encoding](geoparquet/README.md)
+- [Core Specification](core/README.md) - file format agnostic definition for data and metadata
+- [Examples](examples/) - GeoJSON and GeoParquet examples
 
-To complement the specification, there are also best practices and extensions available:
+It can be enriched by extensions and there's a
+[list of extensions](https://vecorel.org/extensions/).
 
-- [Best Practices](best-practices/README.md)
-- [Extensions](https://github.com/fiboa/extensions/)
+> [!NOTE]  
+> Internally, the fiboa specification is an extension to the Vecorel ecosystem and
+> is fully compatible with it. In fact, Vecorel and fiboa share significant portions of
+> the extensions and tooling.
 
 ## Relation to other standards and working groups
 
@@ -43,6 +44,7 @@ e.g. the determination-related fields in the core specification.
 
 Related standards and working groups are:
 
+- [Vecorel](https://vecorel.org)
 - [Adapt standard](https://adaptstandard.org), including their [WG17](https://github.com/ADAPT/Standard/issues/97)
 - [Varda FieldID](https://www.varda.ag/global-field-id)
 - [Deere Boundaries](https://developer.deere.com/dev-docs/boundaries)
@@ -57,6 +59,6 @@ Please get in touch by [opening an issue](https://github.com/fiboa/specification
 The fiboa community strives to provide a welcoming and transparent environment for all of the project’s participants.
 You can find additional information about our community best practices and collaborative development processes below:
   
-- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Code of Conduct](https://vecorel.org/code-of-conduct/)
 - [Contribution Guideline](CONTRIBUTING.md)
-- [Development and Release Process](process.md)
+- [Development and Release Process](https://github.com/vecorel/specification/blob/main/process.md)

@@ -9,8 +9,8 @@ preferred-citation:
   title: "Field Boundaries for Agriculture (fiboa) specification"
   abstract: "Making field boundaries openly available in a unified way."
   version: 0.3.0
-  year: 2024
-  date-released: 2024-04-10
+  year: 2025
+  date-released: 2025-08-26
   license: Apache-2.0
   url: https://github.com/fiboa
   repository: https://github.com/fiboa/specification

@@ -34,7 +34,7 @@ Releases are cut from main, see the [process](process.md) document for more deta
 
 ## Check files
 
-You'll need to install Python >= 3.9 and pip to setup the test environment.
+You'll need to install Python >= 3.10 and pip to setup the test environment.
 We use pipenv to execute the tests.
 
 Start with the following command in the folder where this README is located:
@@ -46,8 +46,6 @@ Install the dependencies for the test:
 Finally, you can run the tests as follows:
 
 - To check the markdown run: `pipenv run test-docs`
-- To check the fiboa schema run: `pipenv run test-schema`
-- To check the examples run:
-  - `pipenv run test-geojson-collection` and `pipenv run test-geojson-features` for GeoJSON
-  - `pipenv run test-geoparquet` for GeoParquet
+- To check the Vecorel schema run: `pipenv run test-schema`
+- To check the examples run: `pipenv run test-examples`
 - To create a GeoParquet from the GeoJSON examples: `pipenv run create-geoparquet`
